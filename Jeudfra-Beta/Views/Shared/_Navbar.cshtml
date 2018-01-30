@@ -9,12 +9,16 @@
             <ul class="navbar-nav">
                 <li class="nav-item px-2">
                     @Html.ActionLink("Dashboard", "Index",
-                        new {Controller = "Home", action= "Index" } ,new { @class = "nav-link" })
+                 new { Controller = "Home", action = "Index" }, new { @class = "nav-link" })
                 </li>
+
+                <li class="nav-item px-2 ">
+                    @Html.ActionLink("Policies", "Random",
+                 new { Controller = "Policy", action = "Random" }, new { @class = "nav-link" })
                 </li>
                 <li class="nav-item px-2 ">
-                    @Html.ActionLink("Policies", "Random", 
-                        new {Controller = "Policy", action= "Random"} ,new { @class = "nav-link" })
+                    @Html.ActionLink("Clients", "Random",
+                 new { Controller = "Client", action = "Random" }, new { @class = "nav-link" })
                 </li>
             </ul>
             <ul class="navbar-nav ml-auto">

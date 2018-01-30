@@ -1,0 +1,106 @@
+﻿@using System.Web.Mvc.Html
++@model IEnumerable<Jeudfra_Beta.Models.Client>
+
+@{
+    ViewBag.Title = "Client Page";
+}
+<header id="main-header" class="py2 bg-warning text-white">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h1><i class="fa fa-users"></i> Clients</h1>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- Search -->
+<section id="action" class="py-4 mb-4 bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-mid-6 ml-auto">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search">
+                    <span class="input-group-btn">
+                        <button class="btn btn-warning">Search</button>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Clients -->
+<section id="Clients">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="card">
+                    @if (!Model.Any())
+                    {
+                            <div class="card-header">
+                                <h4>There are No Customers in the Database</h4>
+                            </div>
+
+                     }
+                    else
+                    {
+                    <div class="card-header">
+                        <h4>Customer Details</h4>
+                    </div>
+
+                    <table class="table table-striped">
+
+                        <thead class="thead-dark text-center ">
+                            <tr>
+                                <th>#</th>
+                                <th>National Id</th>
+                                <th>Name</th>
+                                <th>Surname</th>
+                                <th>Gender</th>
+                                <th>Marital Status</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+
+                        <tbody class="text-center">
+
+
+                            @foreach (var customer in Model)
+                            {
+                                <tr>
+                                    <td scope="row">@customer.Id</td>
+                                    <td>@customer.Name</td>
+                                    <td>@customer.Surname</td>
+                                    <td>@customer.Gender</td>
+                                    <td>@customer.MaritalStatus</td>
+                                    <td>
+                                        @Html.ActionLink(customer.Name, "Details", "Client", new { id = customer.Id }, new { @class = "btn btn-secondary" })
+                                        @*@Html.ActionLink("Details", "ClientDetails", "Home", new { @class = "btn btn-secondary" })*@
+                                        @*<a href="@Url.Action("ClientDetails","Home")" class="btn btn-secondary" new { id = customer.Cus_Id }, null>
+                                                <i class="fa fa-angle-double-right"></i> Details
+                                            </a>*@
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+
+                    </table>
+                    }
+                    <nav class="ml-4">
+                        <ul class="pagination">
+                            <li class="page-item disabled"><a href="#" class="page-link">Previous</a></li>
+                            <li class="page-item active"><a href="#" class="page-link">1</a></li>
+                            <li class="page-item"><a href="#" class="page-link">2</a></li>
+                            <li class="page-item"><a href="#" class="page-link">3</a></li>
+                            <li class="page-item"><a href="#" class="page-link">4</a></li>
+                            <li class="page-item"><a href="#" class="page-link">5</a></li>
+                            <li class="page-item"><a href="#" class="page-link">6</a></li>
+                            <li class="page-item "><a href="#" class="page-link">>>></a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
