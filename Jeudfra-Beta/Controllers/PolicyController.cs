@@ -9,7 +9,8 @@ namespace Jeudfra_Beta.Controllers
 {
     public class PolicyController : Controller
     {
-        // GET: Policy
+        // GET: Policy/Random
+  
         public ActionResult Random()
         {
             var policy = new Policy() {Name = "Standard"};
