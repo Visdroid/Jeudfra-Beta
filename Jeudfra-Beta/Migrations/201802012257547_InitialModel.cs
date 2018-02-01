@@ -8,6 +8,24 @@ namespace Jeudfra_Beta.Migrations
         public override void Up()
         {
             CreateTable(
+                "dbo.Clients",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        Name = c.String(),
+                        Surname = c.String(),
+                        NationalIdNumber = c.String(),
+                        Age = c.String(),
+                        MaritalStatus = c.String(),
+                        Gender = c.String(),
+                        Cellphone = c.String(),
+                        HomeTel = c.String(),
+                        WorkTell = c.String(),
+                        Email = c.String(),
+                    })
+                .PrimaryKey(t => t.Id);
+            
+            CreateTable(
                 "dbo.AspNetRoles",
                 c => new
                     {
@@ -94,6 +112,7 @@ namespace Jeudfra_Beta.Migrations
             DropTable("dbo.AspNetUsers");
             DropTable("dbo.AspNetUserRoles");
             DropTable("dbo.AspNetRoles");
+            DropTable("dbo.Clients");
         }
     }
 }

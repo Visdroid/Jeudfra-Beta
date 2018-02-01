@@ -1,5 +1,5 @@
 ﻿@using System.Web.Mvc.Html
-+@model IEnumerable<Jeudfra_Beta.Models.Client>
+@model IEnumerable<Jeudfra_Beta.Models.Client>
 
 @{
     ViewBag.Title = "Client Page";
@@ -42,7 +42,7 @@
                                 <h4>There are No Customers in the Database</h4>
                             </div>
 
-                     }
+                    }
                     else
                     {
                     <div class="card-header">
@@ -75,11 +75,8 @@
                                     <td>@customer.Gender</td>
                                     <td>@customer.MaritalStatus</td>
                                     <td>
-                                        @Html.ActionLink(customer.Name, "Details", "Client", new { id = customer.Id }, new { @class = "btn btn-secondary" })
-                                        @*@Html.ActionLink("Details", "ClientDetails", "Home", new { @class = "btn btn-secondary" })*@
-                                        @*<a href="@Url.Action("ClientDetails","Home")" class="btn btn-secondary" new { id = customer.Cus_Id }, null>
-                                                <i class="fa fa-angle-double-right"></i> Details
-                                            </a>*@
+                                        @Html.ActionLink("Details", "Details", "Client", new { id = customer.Id }, new { @class = "btn btn-secondary" })
+                                       
                                     </td>
                                 </tr>
                             }

@@ -1,10 +1,10 @@
 ﻿@using System.Web.Mvc.Html
-+@model IEnumerable<Jeudfra_Beta.Models.Policy>
+@model IEnumerable<Jeudfra_Beta.Models.Policy>
 
 @{
     ViewBag.Title = "Policy Page";
 }
-<header id="main-header" class="py2 bg-warning text-white">
+<header id="main-header" class="py2 bg-success text-white">
     <div class="container">
         <div class="row">
             <div class="col-md-6">
@@ -21,7 +21,7 @@
                 <div class="input-group">
                     <input type="text" class="form-control" placeholder="Search">
                     <span class="input-group-btn">
-                        <button class="btn btn-warning">Search</button>
+                        <button class="btn btn-success">Search</button>
                     </span>
                 </div>
             </div>
@@ -46,7 +46,7 @@
                     else
                     {
                         <div class="card-header">
-                            <h4>Customer Details</h4>
+                            <h4>Policy Details</h4>
                         </div>
 
                         <table class="table table-striped">
@@ -67,7 +67,7 @@
                                         <td>@policy.Name</td>
                                         <td>@policy.Amount</td>
                                         <td>
-                                            @Html.ActionLink(policy.Name, "Details", "Policy", new { id = policy.Id }, new { @class = "btn btn-secondary" })
+                                            @Html.ActionLink("Details", "Details", "Policy", new { id = policy.Id }, new { @class = "btn btn-secondary" })
                                             @*@Html.ActionLink("Details", "ClientDetails", "Home", new { @class = "btn btn-secondary" })*@
                                             @*<a href="@Url.Action("ClientDetails","Home")" class="btn btn-secondary" new { id = customer.Cus_Id }, null>
                                                     <i class="fa fa-angle-double-right"></i> Details
