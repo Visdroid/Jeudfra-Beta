@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.AccessControl;
 using System.Web;
 
 namespace Jeudfra_Beta.Models
@@ -18,5 +19,7 @@ namespace Jeudfra_Beta.Models
         public string HomeTel { get; set; }
         public string WorkTell { get; set; }
         public string Email { get; set; }
+        public MembershipType MembershipType { get; set; }
+        public byte MembershipTypeId { get; set; }
     }
 }
