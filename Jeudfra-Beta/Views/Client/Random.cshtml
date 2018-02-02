@@ -54,11 +54,11 @@
                         <thead class="thead-dark text-center ">
                             <tr>
                                 <th>#</th>
-                                <th>National Id</th>
                                 <th>Name</th>
                                 <th>Surname</th>
                                 <th>Gender</th>
                                 <th>Marital Status</th>
+                                <th>Monthly Premium</th>
                                 <th></th>
                             </tr>
                         </thead>
@@ -68,17 +68,18 @@
 
                             @foreach (var customer in Model)
                             {
-                                <tr>
-                                    <td scope="row">@customer.Id</td>
-                                    <td>@customer.Name</td>
-                                    <td>@customer.Surname</td>
-                                    <td>@customer.Gender</td>
-                                    <td>@customer.MaritalStatus</td>
-                                    <td>
-                                        @Html.ActionLink("Details", "Details", "Client", new { id = customer.Id }, new { @class = "btn btn-secondary" })
-                                       
-                                    </td>
-                                </tr>
+                            <tr>
+                                <td scope="row">@customer.Id</td>
+                                <td>@customer.Name</td>
+                                <td>@customer.Surname</td>
+                                <td>@customer.Gender</td>
+                                <td>@customer.MaritalStatus</td>
+                                <td>@customer.MembershipType.MonthlyPremium</td>
+                                <td>
+                                    @Html.ActionLink("Details", "Details", "Client", new { id = customer.Id }, new { @class = "btn btn-secondary" })
+
+                                </td>
+                            </tr>
                             }
                         </tbody>
 
