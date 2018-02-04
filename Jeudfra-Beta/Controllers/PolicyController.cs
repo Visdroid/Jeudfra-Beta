@@ -9,71 +9,30 @@ namespace Jeudfra_Beta.Controllers
 {
     public class PolicyController : Controller
     {
+        private ApplicationDbContext _context;
         // GET: Policy/Random
-  
+        public PolicyController()
+        {
+            _context = new ApplicationDbContext();
+
+        }
+        protected override void Dispose(bool disposing)
+        {
+            _context.Dispose();
+        }
         public ViewResult Random()
         {
-            var policies = GetPolicies();
-
+            var policies = _context.Policies.ToList();
             return View(policies);
+           
         }
         public ActionResult Details(int id)
         {
-            var policy = GetPolicies().SingleOrDefault(c => c.Id == id);
+            var policy = _context.Policies.SingleOrDefault(c => c.Id == id);
             if (policy == null)
                 return HttpNotFound();
 
             return View(policy);
-        }
-
-        public IEnumerable<Policy> GetPolicies()
-        {
-            return new List<Policy>
-            {
-                new Policy
-                {
-                    Id = 1,
-                    Name = "Standard Plan",
-                    Amount = 70,
-                },
-                new Policy
-                {
-                    Id = 2,
-                    Name = "Economic Casket",
-                    Amount = 80,
-                },
-                new Policy
-                {
-                    Id = 3,
-                    Name = "Extra Cash",
-                    Amount = 80,
-                },
-                new Policy
-                {
-                    Id = 4,
-                    Name = "Hamper + 2 Sheep",
-                    Amount = 70,
-                },
-                new Policy
-                {
-                    Id = 5,
-                    Name = "Tombstone",
-                    Amount = 70,
-                },
-                new Policy
-                {
-                    Id = 6,
-                    Name = "Standard Casket",
-                    Amount = 90,
-                },
-                new Policy
-                {
-                    Id = 7,
-                    Name = "Mini Dome",
-                    Amount = 140,
-                },
-
-            };
         }
     }
 }

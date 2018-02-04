@@ -39,7 +39,7 @@
                     @if (!Model.Any())
                     {
                         <div class="card-header">
-                            <h4>There are No Customers in the Database</h4>
+                            <h4>There are No Policies in the Database</h4>
                         </div>
 
                     }
@@ -51,7 +51,7 @@
 
                         <table class="table table-striped">
 
-                            <thead class="thead-dark text-center ">
+                            <thead class="thead-dark">
                                 <tr>
                                     <th>#</th>
                                     <th>Policy Name</th>
@@ -59,7 +59,7 @@
                                     <th></th>
                                 </tr>
                             </thead>
-                            <tbody class="text-center">
+                            <tbody>
                                 @foreach (var policy in Model)
                                 {
                                     <tr>

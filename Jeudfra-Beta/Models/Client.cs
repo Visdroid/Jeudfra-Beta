@@ -22,5 +22,7 @@ namespace Jeudfra_Beta.Models
         public string Email { get; set; }
         public MembershipType MembershipType { get; set; }
         public byte MembershipTypeId { get; set; }
+        public Policy Policy { get; set; }
+        public byte PolicyId { get; set; }
     }
 }
