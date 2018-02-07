@@ -215,6 +215,14 @@
     <Compile Include="Migrations\201802020320063_AllModelsUpdate.Designer.cs">
       <DependentUpon>201802020320063_AllModelsUpdate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201802061327115_ChangeAgeGroupInMemberShipType.cs" />
+    <Compile Include="Migrations\201802061327115_ChangeAgeGroupInMemberShipType.Designer.cs">
+      <DependentUpon>201802061327115_ChangeAgeGroupInMemberShipType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802061339520_AddBirthdateToCustomer.cs" />
+    <Compile Include="Migrations\201802061339520_AddBirthdateToCustomer.Designer.cs">
+      <DependentUpon>201802061339520_AddBirthdateToCustomer.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Client.cs" />
@@ -339,6 +347,7 @@
     <Content Include="Views\Client\Random.cshtml" />
     <Content Include="Views\Client\Details.cshtml" />
     <Content Include="Views\Policy\Details.cshtml" />
+    <Content Include="Views\Client\New.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -364,6 +373,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201802020320063_AllModelsUpdate.resx">
       <DependentUpon>201802020320063_AllModelsUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802061327115_ChangeAgeGroupInMemberShipType.resx">
+      <DependentUpon>201802061327115_ChangeAgeGroupInMemberShipType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802061339520_AddBirthdateToCustomer.resx">
+      <DependentUpon>201802061339520_AddBirthdateToCustomer.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

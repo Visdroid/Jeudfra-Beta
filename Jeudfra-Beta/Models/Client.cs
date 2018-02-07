@@ -13,6 +13,7 @@ namespace Jeudfra_Beta.Models
         public string Name { get; set; }
         public string Surname { get; set; }
         public string NationalIdNumber { get; set; }
+        public DateTime? BirthDate { get; set; }
         public string Age { get; set; }
         public string MaritalStatus { get; set; }
         public string Gender { get; set; }

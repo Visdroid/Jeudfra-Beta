@@ -1,0 +1,51 @@
+﻿
+<form>
+    <fieldset class="border col-md-12">
+        <legend>Personal Details</legend>
+        <div class="form-group">
+            <label for="m => m."></label>
+            <input type="text" id="client_first_input" class="form-control form-control-md col-12 mb-3 ">
+            <input placeholder="Surname e.g. Ramalefane" type="text" id="client_surn_input" class="form-control  form-control-md col-12 mb-3 ">
+            <input placeholder="ID Number" type="text" id="client_id_input" class="form-control  form-control-md col-12 mb-3 ">
+            <select id="client_gender_input" class="form-control form-control-md col-12 mb-3">
+                <option>Select Gender</option>
+                <option>Male</option>
+                <option>Female</option>
+            </select>
+            @*<select id="client_type_input" class="form-control form-control-md col-12 mb-3">
+                    <option>Select Employee Type</option>
+                    <option>Field</option>
+                    <option>Office</option>
+                </select>*@
+        </div>
+    </fieldset>
+    <br />
+
+    <fieldset class="border col-md-12">
+        <legend>Address Details</legend>
+        <div class="form-group">
+            <select id="City" class="form-control form-control-md col-12 mb-3">
+                <option class="active">Select City</option>
+                <option>Upington</option>
+                <option>Kakamas</option>
+                <option>Louisvale</option>
+            </select>
+            <!-- <input placeholder="City" type="text" class="form-control form-control-md col-12 mb-3 "> -->
+            <input placeholder="Suburb" type="text" class="form-control  form-control-md col-12 mb-3 ">
+            <input placeholder="Street" type="text" class="form-control  form-control-md col-12 mb-3 ">
+            <input placeholder="number" type="text" class="form-control  form-control-md col-12 mb-3 ">
+            <input placeholder="AreaCode" type="text" class="form-control  form-control-md col-12 mb-3 ">
+        </div>
+    </fieldset>
+    <br />
+    <fieldset class="border col-md-12">
+        <legend>Contact Details</legend>
+        <div class="form-group">
+            <input id="client_cell_input" placeholder="Cellphone" type="text" class="form-control form-control-md col-12 mb-3 ">
+            <input id="client_home_tell_input" placeholder="Home Telephone" type="text" class="form-control  form-control-md col-12 mb-3 ">
+            <input id="client_work_tell_input" placeholder="Work Telephone" type="text" class="form-control  form-control-md col-12 mb-3 ">
+            <input id="client_email_input" placeholder="Email Address" type="text" class="form-control  form-control-md col-12 mb-3 ">
+        </div>
+    </fieldset>
+
+</form>

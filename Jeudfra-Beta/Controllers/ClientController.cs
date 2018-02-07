@@ -30,7 +30,10 @@ namespace Jeudfra_Beta.Controllers
             var customers = _context.Customers.Include(c => c.MembershipType).ToList();
             return View(customers);
         }
-
+        public ActionResult New()
+        {
+            return View();
+        }
         public ActionResult Details(int id)
         {
             var customer = _context.Customers.Include(c => c.MembershipType).SingleOrDefault(c => c.Id == id);

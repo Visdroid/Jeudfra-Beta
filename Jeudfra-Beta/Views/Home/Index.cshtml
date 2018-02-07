@@ -1,31 +1,380 @@
-﻿@{
+﻿@model Jeudfra_Beta.Models.Client
+@{
     ViewBag.Title = "Home Page";
 }
+<header id="main-header" class="py2 bg-primary text-white">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h1><i class="fa fa-gear"></i> Dashboard</h1>
+            </div>
+        </div>
+    </div>
+</header>
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+<section id="action" class="py-4 mb-4 bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <a href="#" class="btn btn-primary btn-block " data-toggle="modal" data-target="#addPaymentModal">
+                    <i class="fa fa-plus text-center"></i> Add Payment
+                </a>
+            </div>
+            <div class="col-md-3">
+                <a href="#" class="btn btn-success btn-block" data-toggle="modal" data-target="#addCategoryModal">
+                    <i class="fa fa-plus text-center"></i> Add Policy
+                </a>
+            </div>
+            <div class="col-md-3">
+                <a href="#" class="btn btn-warning btn-block text-center" data-toggle="modal" data-target="#addClientModal">
+                    <i class="fa fa-plus"></i> Add Client
+                </a>
+            </div>
+            <div class="col-md-3">
+                <a href="#" class="btn btn-danger btn-block text-center" data-toggle="modal" data-target="#addEmployeeModal">
+                    <i class="fa fa-plus"></i> Add Employee
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Payments -->
+<section id="payments_dialogue">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Recent Payments</h4>
+                    </div>
+                    <table class="table table-striped">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th>#</th>
+                                <th>Code</th>
+                                <th>Policies</th>
+                                <th>Paid By</th>
+                                <th>Amount</th>
+                                <th>Date Paid</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td scope="row">1</td>
+                                <td>E012</td>
+                                <td>Standard</td>
+                                <td>A Visser</td>
+                                <td>R100</td>
+                                <td>Dec 09 2017</td>
+                                <td>
+                                    <a href="details.html" class="btn btn-secondary">
+                                        <i class="fa fa-angle-double-right"></i> Details
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td scope="row">2</td>
+                                <td>A002</td>
+                                <td>Standard</td>
+                                <td>P Mvimbi</td>
+                                <td>R100</td>
+                                <td>Dec 08 2017</td>
+                                <td>
+                                    <a href="details.html" class="btn btn-secondary">
+                                        <i class="fa fa-angle-double-right"></i> Details
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td scope="row">3</td>
+                                <td>A099</td>
+                                <td>Mini</td>
+                                <td>J Motsoe</td>
+                                <td>R100</td>
+                                <td>Dec 08 2017</td>
+                                <td>
+                                    <a href="details.html" class="btn btn-secondary">
+                                        <i class="fa fa-angle-double-right"></i> Details
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td scope="row">4</td>
+                                <td>E1038</td>
+                                <td>Standard</td>
+                                <td>R Cloete</td>
+                                <td>R100</td>
+                                <td>Dec 08 2017</td>
+                                <td>
+                                    <a href="details.html" class="btn btn-secondary">
+                                        <i class="fa fa-angle-double-right"></i> Details
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td scope="row">5</td>
+                                <td>A072</td>
+                                <td>Mini</td>
+                                <td>N Visser</td>
+                                <td>R70</td>
+                                <td>Dec 07 2017</td>
+                                <td>
+                                    <a href="details.html" class="btn btn-secondary">
+                                        <i class="fa fa-angle-double-right"></i> Details
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td scope="row">6</td>
+                                <td>E233</td>
+                                <td>Plus</td>
+                                <td>P Coetzee</td>
+                                <td>R130</td>
+                                <td>Dec 07 2017</td>
+                                <td>
+                                    <a href="details.html" class="btn btn-secondary">
+                                        <i class="fa fa-angle-double-right"></i> Details
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td scope="row">6</td>
+                                <td>E233</td>
+                                <td>Plus</td>
+                                <td>P Coetzee</td>
+                                <td>R130</td>
+                                <td>Dec 07 2017</td>
+                                <td>
+                                    <a href="details.html" class="btn btn-secondary">
+                                        <i class="fa fa-angle-double-right"></i> Details
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td scope="row">6</td>
+                                <td>E233</td>
+                                <td>Plus</td>
+                                <td>P Coetzee</td>
+                                <td>R130</td>
+                                <td>Dec 07 2017</td>
+                                <td>
+                                    <a href="details.html" class="btn btn-secondary">
+                                        <i class="fa fa-angle-double-right"></i> Details
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td scope="row">6</td>
+                                <td>E233</td>
+                                <td>Plus</td>
+                                <td>P Coetzee</td>
+                                <td>R130</td>
+                                <td>Dec 07 2017</td>
+                                <td>
+                                    <a href="details.html" class="btn btn-secondary">
+                                        <i class="fa fa-angle-double-right"></i> Details
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td scope="row">6</td>
+                                <td>E233</td>
+                                <td>Plus</td>
+                                <td>P Coetzee</td>
+                                <td>R130</td>
+                                <td>Dec 07 2017</td>
+                                <td>
+                                    <a href="details.html" class="btn btn-secondary">
+                                        <i class="fa fa-angle-double-right"></i> Details
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card text-center bg-primary text-white mb-3">
+                    <div class="card-body">
+                        <h3>Payments</h3>
+                        <h1 class="display-4">
+                            <i class="fa fa-pencil"></i> 130
+                        </h1>
+                        <a href="posts.html" class="btn btn-outline-light btn-sm">View</a>
+                    </div>
+                </div>
+
+                <div class="card text-center bg-success text-white mb-3">
+                    <div class="card-body">
+                        <h3>Policies</h3>
+                        <h1 class="display-4">
+                            <i class="fa fa-folder-open-o"></i> 4
+                        </h1>
+                        <a href="categories.html" class="btn btn-outline-light btn-sm">View</a>
+                    </div>
+                </div>
+
+                <div class="card text-center bg-warning text-white mb-3">
+                    <div class="card-body">
+                        <h3>Clients</h3>
+                        <h1 class="display-4">
+                            <i class="fa fa-users"></i> 2800
+                        </h1>
+                        <a href="users.html" class="btn btn-outline-light btn-sm">View</a>
+                    </div>
+                </div>
+
+                <div class="card text-center bg-danger text-white mb-3">
+                    <div class="card-body">
+                        <h3>Employees</h3>
+                        <h1 class="display-4">
+                            <i class="fa fa-users"></i> 48
+                        </h1>
+                        <a href="users.html" class="btn btn-outline-light btn-sm">View</a>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Employee MODAL -->
+<div class="modal fade" id="addEmployeeModal">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header bg-danger text-white">
+                <h5 class="modal-title">Add Employee</h5>
+                <button class="close" data-dismiss="modal"><span>&times;</span></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <fieldset class="border col-md-12">
+                        <legend>Personal Details</legend>
+                        <div class="form-group">
+                            <label></label>
+                            <input type="text" id="emp_first_input" class="form-control form-control-md col-12 mb-3 ">
+                            <input placeholder="Surname e.g. Ramalefane" type="text" id="emp_surn_input" class="form-control  form-control-md col-12 mb-3 ">
+                            <input placeholder="ID Number" type="text" id="emp_id_input" class="form-control  form-control-md col-12 mb-3 ">
+                            <select id="emp_gender_input" class="form-control form-control-md col-12 mb-3">
+                                <option>Select Gender</option>
+                                <option>Male</option>
+                                <option>Female</option>
+                            </select>
+                            <select id="emp_type_input" class="form-control form-control-md col-12 mb-3">
+                                <option>Select Employee Type</option>
+                                <option>Field</option>
+                                <option>Office</option>
+                            </select>
+                        </div>
+                    </fieldset>
+                    <br />
+
+                    <fieldset class="border col-md-12">
+                        <legend>Address Details</legend>
+                        <div class="form-group">
+                            <select id="City" class="form-control form-control-md col-12 mb-3">
+                                <option class="active">Select City</option>
+                                <option>Upington</option>
+                                <option>Kakamas</option>
+                                <option>Louisvale</option>
+                            </select>
+                            <!-- <input placeholder="City" type="text" class="form-control form-control-md col-12 mb-3 "> -->
+                            <input placeholder="Suburb" type="text" class="form-control  form-control-md col-12 mb-3 ">
+                            <input placeholder="Street" type="text" class="form-control  form-control-md col-12 mb-3 ">
+                            <input placeholder="number" type="text" class="form-control  form-control-md col-12 mb-3 ">
+                            <input placeholder="AreaCode" type="text" class="form-control  form-control-md col-12 mb-3 ">
+                        </div>
+                    </fieldset>
+                    <br />
+                    <fieldset class="border col-md-12">
+                        <legend>Contact Details</legend>
+                        <div class="form-group">
+                            <input id="emp_cell_input" placeholder="Cellphone" type="text" class="form-control form-control-md col-12 mb-3 ">
+                            <input id="emp_home_tell_input" placeholder="Home Telephone" type="text" class="form-control  form-control-md col-12 mb-3 ">
+                            <input id="emp_email_input" placeholder="Email Address" type="text" class="form-control  form-control-md col-12 mb-3 ">
+                        </div>
+                    </fieldset>
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" data-dismiss="modal">Dismiss</button>
+                <button class="btn btn-danger" id="btn_save" data-dismiss="modal">Save Changes</button>
+            </div>
+        </div>
+    </div>
 </div>
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+
+<!-- Client MODAL -->
+<div class="modal fade" id="addClientModal">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header bg-warning text-white">
+                <h5 class="modal-title">Add Client</h5>
+                <button class="close" data-dismiss="modal"><span>&times;</span></button>
+            </div>
+            <div class="modal-body">
+                <form >
+                    <fieldset class="border col-md-12">
+                        <legend>Personal Details</legend>
+                        <div class="form-group">
+                            <label for="m => m."></label>
+                            <input type="text" id="client_first_input" class="form-control form-control-md col-12 mb-3 ">
+                            <input placeholder="Surname e.g. Ramalefane" type="text" id="client_surn_input" class="form-control  form-control-md col-12 mb-3 ">
+                            <input placeholder="ID Number" type="text" id="client_id_input" class="form-control  form-control-md col-12 mb-3 ">
+                            <select id="client_gender_input" class="form-control form-control-md col-12 mb-3">
+                                <option>Select Gender</option>
+                                <option>Male</option>
+                                <option>Female</option>
+                            </select>
+                            @*<select id="client_type_input" class="form-control form-control-md col-12 mb-3">
+                                    <option>Select Employee Type</option>
+                                    <option>Field</option>
+                                    <option>Office</option>
+                                </select>*@
+                        </div>
+                    </fieldset>
+                    <br />
+
+                    <fieldset class="border col-md-12">
+                        <legend>Address Details</legend>
+                        <div class="form-group">
+                            <select id="City" class="form-control form-control-md col-12 mb-3">
+                                <option class="active">Select City</option>
+                                <option>Upington</option>
+                                <option>Kakamas</option>
+                                <option>Louisvale</option>
+                            </select>
+                            <!-- <input placeholder="City" type="text" class="form-control form-control-md col-12 mb-3 "> -->
+                            <input placeholder="Suburb" type="text" class="form-control  form-control-md col-12 mb-3 ">
+                            <input placeholder="Street" type="text" class="form-control  form-control-md col-12 mb-3 ">
+                            <input placeholder="number" type="text" class="form-control  form-control-md col-12 mb-3 ">
+                            <input placeholder="AreaCode" type="text" class="form-control  form-control-md col-12 mb-3 ">
+                        </div>
+                    </fieldset>
+                    <br />
+                    <fieldset class="border col-md-12">
+                        <legend>Contact Details</legend>
+                        <div class="form-group">
+                            <input id="client_cell_input" placeholder="Cellphone" type="text" class="form-control form-control-md col-12 mb-3 ">
+                            <input id="client_home_tell_input" placeholder="Home Telephone" type="text" class="form-control  form-control-md col-12 mb-3 ">
+                            <input id="client_work_tell_input" placeholder="Work Telephone" type="text" class="form-control  form-control-md col-12 mb-3 ">
+                            <input id="client_email_input" placeholder="Email Address" type="text" class="form-control  form-control-md col-12 mb-3 ">
+                        </div>
+                    </fieldset>
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" data-dismiss="modal">Dismiss</button>
+                <button class="btn btn-danger" id="btn_client_save" data-dismiss="modal">Save Changes</button>
+            </div>
+        </div>
     </div>
 </div>

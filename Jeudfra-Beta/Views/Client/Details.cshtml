@@ -9,6 +9,12 @@
 <p>@Model.Surname</p>
 <p>@Model.NationalIdNumber</p>
 <p>@Model.MaritalStatus</p>
+@if (Model.BirthDate.HasValue)
+{
+    <p>@Model.MaritalStatus</p>
+}
+/**/
+
 <p>@Model.Age</p>
 <p>@Model.Gender</p>
 <p>@Model.Cellphone</p>
@@ -16,5 +22,6 @@
 <p>@Model.WorkTell</p>
 <p>@Model.Email</p>
 <p>@Model.MembershipType.MonthlyPremium</p>
+
 
 
