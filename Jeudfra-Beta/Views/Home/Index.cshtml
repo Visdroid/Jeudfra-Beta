@@ -1,4 +1,7 @@
-﻿@model Jeudfra_Beta.Models.Client
+﻿@using System.Activities.Expressions
+@using Jeudfra_Beta.Models
+@using Microsoft.Owin.BuilderProperties
+@model Jeudfra_Beta.ViewModels.CustomerViewModel
 @{
     ViewBag.Title = "Home Page";
 }
@@ -312,32 +315,36 @@
 
 
 <!-- Client MODAL -->
+
 <div class="modal fade" id="addClientModal">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header bg-warning text-white">
-                <h5 class="modal-title">Add Client</h5>
+                <h5 class="modal-title">Add<,,> Client</h5>
                 <button class="close" data-dismiss="modal"><span>&times;</span></button>
             </div>
+          
             <div class="modal-body">
-                <form >
+                <form>
                     <fieldset class="border col-md-12">
                         <legend>Personal Details</legend>
                         <div class="form-group">
-                            <label for="m => m."></label>
-                            <input type="text" id="client_first_input" class="form-control form-control-md col-12 mb-3 ">
-                            <input placeholder="Surname e.g. Ramalefane" type="text" id="client_surn_input" class="form-control  form-control-md col-12 mb-3 ">
-                            <input placeholder="ID Number" type="text" id="client_id_input" class="form-control  form-control-md col-12 mb-3 ">
-                            <select id="client_gender_input" class="form-control form-control-md col-12 mb-3">
-                                <option>Select Gender</option>
-                                <option>Male</option>
-                                <option>Female</option>
-                            </select>
-                            @*<select id="client_type_input" class="form-control form-control-md col-12 mb-3">
-                                    <option>Select Employee Type</option>
-                                    <option>Field</option>
-                                    <option>Office</option>
-                                </select>*@
+                            @Html.LabelFor(m => m.Customer.Name)
+                            @Html.TextBoxFor(m => m.Customer.Name, new { @class = "form-control form-control col-12 mb-3 " })
+                            @Html.LabelFor(m => m.Customer.Surname)
+                            @Html.TextBoxFor(m => m.Customer.Surname, new { @class = "form-control form-control col-12 mb-3 " })
+                            @Html.LabelFor(m => m.Customer.NationalIdNumber)
+                            @Html.TextBoxFor(m => m.Customer.NationalIdNumber, new { @class = "form-control form-control col-12 mb-3 " })
+                            @Html.LabelFor(m => m.Customer.BirthDate)
+                            @Html.TextBoxFor(m => m.Customer.BirthDate, new { @class = "form-control form-control col-12 mb-3 " })
+                            @Html.LabelFor(m => m.Customer.Gender)
+                            @Html.DropDownListFor(m => m.Customer.Gender, new List<SelectListItem>
+                            {
+                                new SelectListItem {Text = "Male", Value = "Male"},
+                                new SelectListItem {Text = "Female", Value = "Male"}
+                            }, "Select Gender", new { @class = "form-control form-control col-12 mb-3 " })
+                            @Html.LabelFor(m => m.Customer.MembershipTypeId)
+                            @Html.DropDownListFor(m => m.Customer.MembershipTypeId, new SelectList(Model.MembershipTypes, "Id", "AgeType"), "Select AgeGroup", new { @class = "form-control form-control col-12 mb-3 " })
                         </div>
                     </fieldset>
                     <br />
@@ -351,7 +358,7 @@
                                 <option>Kakamas</option>
                                 <option>Louisvale</option>
                             </select>
-                            <!-- <input placeholder="City" type="text" class="form-control form-control-md col-12 mb-3 "> -->
+
                             <input placeholder="Suburb" type="text" class="form-control  form-control-md col-12 mb-3 ">
                             <input placeholder="Street" type="text" class="form-control  form-control-md col-12 mb-3 ">
                             <input placeholder="number" type="text" class="form-control  form-control-md col-12 mb-3 ">
@@ -368,13 +375,14 @@
                             <input id="client_email_input" placeholder="Email Address" type="text" class="form-control  form-control-md col-12 mb-3 ">
                         </div>
                     </fieldset>
-
+                    }
                 </form>
+            </div>
             </div>
             <div class="modal-footer">
                 <button class="btn btn-secondary" data-dismiss="modal">Dismiss</button>
-                <button class="btn btn-danger" id="btn_client_save" data-dismiss="modal">Save Changes</button>
+                <button type="submit" class="btn btn-danger" id="btn_client_save" data-dismiss="modal">Save Changes</button>
             </div>
         </div>
     </div>
-</div>
+

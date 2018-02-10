@@ -3,15 +3,37 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Jeudfra_Beta.Models;
+using Jeudfra_Beta.ViewModels;
 
 namespace Jeudfra_Beta.Controllers
 {
     public class HomeController : Controller
     {
-  
+        private ApplicationDbContext _context;
+
+        public HomeController()
+        {
+            _context = new ApplicationDbContext();
+
+        } 
+
+        protected override void Dispose(bool disposing)
+        {
+            _context.Dispose();
+        }
+
+
         public ActionResult Index()
         {
-            return View();
+            var memberShipTypes = _context.MembershipTypes.ToList();
+            var viewModel = new CustomerViewModel
+            {
+                MembershipTypes = memberShipTypes
+            };
+           
+            return View(viewModel);
+           // return View();
         }
    
         public ActionResult About()

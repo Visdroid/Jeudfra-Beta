@@ -113,6 +113,15 @@
       <Private>True</Private>
       <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
     </Reference>
+    <Reference Include="Xamarin.Forms.Core, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xamarin.Forms.2.3.2.127\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Platform, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xamarin.Forms.2.3.2.127\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.Platform.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Xaml, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xamarin.Forms.2.3.2.127\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.Xaml.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json">
@@ -203,10 +212,6 @@
     <Compile Include="Migrations\201802012257547_InitialModel.Designer.cs">
       <DependentUpon>201802012257547_InitialModel.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201802020042429_AddMemberShipType.cs" />
-    <Compile Include="Migrations\201802020042429_AddMemberShipType.Designer.cs">
-      <DependentUpon>201802020042429_AddMemberShipType.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\201802020055320_PopulateMembershipTypes.cs" />
     <Compile Include="Migrations\201802020055320_PopulateMembershipTypes.Designer.cs">
       <DependentUpon>201802020055320_PopulateMembershipTypes.cs</DependentUpon>
@@ -223,6 +228,18 @@
     <Compile Include="Migrations\201802061339520_AddBirthdateToCustomer.Designer.cs">
       <DependentUpon>201802061339520_AddBirthdateToCustomer.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201802090947471_AddMemberShipType.cs" />
+    <Compile Include="Migrations\201802090947471_AddMemberShipType.Designer.cs">
+      <DependentUpon>201802090947471_AddMemberShipType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802092309561_ChangeMonthlyPremium.cs" />
+    <Compile Include="Migrations\201802092309561_ChangeMonthlyPremium.Designer.cs">
+      <DependentUpon>201802092309561_ChangeMonthlyPremium.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802100003559_ChangeMonthlyPremium2.cs" />
+    <Compile Include="Migrations\201802100003559_ChangeMonthlyPremium2.Designer.cs">
+      <DependentUpon>201802100003559_ChangeMonthlyPremium2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Client.cs" />
@@ -232,6 +249,7 @@
     <Compile Include="Models\Policy.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\CustomerViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-grid.css" />
@@ -365,9 +383,6 @@
     <EmbeddedResource Include="Migrations\201802012257547_InitialModel.resx">
       <DependentUpon>201802012257547_InitialModel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201802020042429_AddMemberShipType.resx">
-      <DependentUpon>201802020042429_AddMemberShipType.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201802020055320_PopulateMembershipTypes.resx">
       <DependentUpon>201802020055320_PopulateMembershipTypes.cs</DependentUpon>
     </EmbeddedResource>
@@ -379,6 +394,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201802061339520_AddBirthdateToCustomer.resx">
       <DependentUpon>201802061339520_AddBirthdateToCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802090947471_AddMemberShipType.resx">
+      <DependentUpon>201802090947471_AddMemberShipType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802092309561_ChangeMonthlyPremium.resx">
+      <DependentUpon>201802092309561_ChangeMonthlyPremium.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802100003559_ChangeMonthlyPremium2.resx">
+      <DependentUpon>201802100003559_ChangeMonthlyPremium2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
@@ -416,7 +440,9 @@
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.2.1.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.2.1.0\build\Microsoft.Net.Compilers.props'))" />
     <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\Xamarin.Forms.2.3.2.127\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Xamarin.Forms.2.3.2.127\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets'))" />
   </Target>
+  <Import Project="..\packages\Xamarin.Forms.2.3.2.127\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.3.2.127\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

@@ -7,13 +7,13 @@ namespace Jeudfra_Beta.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class AddMemberShipType : IMigrationMetadata
+    public sealed partial class ChangeMonthlyPremium2 : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AddMemberShipType));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(ChangeMonthlyPremium2));
         
         string IMigrationMetadata.Id
         {
-            get { return "201802020042429_AddMemberShipType"; }
+            get { return "201802100003559_ChangeMonthlyPremium2"; }
         }
         
         string IMigrationMetadata.Source

@@ -7,9 +7,9 @@ namespace Jeudfra_Beta.Migrations
     {
         public override void Up()
         {
-            //Sql("INSERT INTO MembershipTypes(Id, SignUpFee, MonthlyPremium) VALUES (1,18,7000)");
-            //Sql("INSERT INTO MembershipTypes(Id, SignUpFee, MonthlyPremium) VALUES (2,66,14000)");
-            //Sql("INSERT INTO MembershipTypes(Id, SignUpFee, MonthlyPremium) VALUES (3,75,21000)");
+            //Sql("INSERT INTO MembershipTypes(Id, AgeType, MonthlyPremium) VALUES (1,Adult,60)");
+            //Sql("INSERT INTO MembershipTypes(Id, AgeType, MonthlyPremium) VALUES (2,Senior,70)");
+            //Sql("INSERT INTO MembershipTypes(Id, AgeType, MonthlyPremium) VALUES (3,Elder,90)");
            
         }
         

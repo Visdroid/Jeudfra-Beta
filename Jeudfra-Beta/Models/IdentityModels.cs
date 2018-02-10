@@ -22,6 +22,7 @@ namespace Jeudfra_Beta.Models
     {
         public DbSet<Client> Customers { get; set; }
         public DbSet<Policy> Policies { get; set; }
+        public DbSet<MembershipType> MembershipTypes { get; set; }
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {

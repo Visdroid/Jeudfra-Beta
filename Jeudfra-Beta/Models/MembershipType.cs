@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -7,9 +8,10 @@ namespace Jeudfra_Beta.Models
 {
     public class MembershipType
     {
-        public byte Id { get; set; }
-        public int AgeGruop { get; set; }
-        public int MonthlyPremium { get; set; }
+        public int Id { get; set; }
+        [StringLength(255)]
+        public String AgeType { get; set; }
+        public int MonthlyPrem{ get; set; }
 
     }
 }
