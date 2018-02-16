@@ -9,7 +9,7 @@ namespace Jeudfra_Beta.Models
     public class MembershipType
     {
         public int Id { get; set; }
-        [StringLength(255)]
+      
         public String AgeType { get; set; }
         public int MonthlyPrem{ get; set; }
 

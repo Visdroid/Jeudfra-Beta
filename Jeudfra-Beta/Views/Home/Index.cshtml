@@ -1,7 +1,8 @@
 ﻿@using System.Activities.Expressions
-@using Jeudfra_Beta.Models
+
 @using Microsoft.Owin.BuilderProperties
-@model Jeudfra_Beta.ViewModels.CustomerViewModel
+
+@model Jeudfra_Beta.ViewModels.CustomerFormViewModel
 @{
     ViewBag.Title = "Home Page";
 }
@@ -14,6 +15,8 @@
         </div>
     </div>
 </header>
+<br />
+
 
 <section id="action" class="py-4 mb-4 bg-light">
     <div class="container">
@@ -22,6 +25,8 @@
                 <a href="#" class="btn btn-primary btn-block " data-toggle="modal" data-target="#addPaymentModal">
                     <i class="fa fa-plus text-center"></i> Add Payment
                 </a>
+                @*@Html.ActionLink("Add Client", "New",
+            new { Controller = "Client" }, new { @class = "btn btn-secondary" })*@
             </div>
             <div class="col-md-3">
                 <a href="#" class="btn btn-success btn-block" data-toggle="modal" data-target="#addCategoryModal">
@@ -29,10 +34,15 @@
                 </a>
             </div>
             <div class="col-md-3">
-                <a href="#" class="btn btn-warning btn-block text-center" data-toggle="modal" data-target="#addClientModal">
-                    <i class="fa fa-plus"></i> Add Client
+                <a href="#" class="btn btn-warning btn-block" data-toggle="modal" data-target="#addClientModal">
+                    <i class="fa fa-plus text-center"></i> Add Client
                 </a>
             </div>
+            @*<div class="col-md-3">
+            <a href="#" class="btn btn-warning btn-block" data-toggle="modal" data-target="#addClientModal">
+                <i class="fa fa-plus text-center"></i> Add Client
+            </a>
+        </div>*@
             <div class="col-md-3">
                 <a href="#" class="btn btn-danger btn-block text-center" data-toggle="modal" data-target="#addEmployeeModal">
                     <i class="fa fa-plus"></i> Add Employee
@@ -199,6 +209,7 @@
                     </table>
                 </div>
             </div>
+            <br />
             <div class="col-md-3">
                 <div class="card text-center bg-primary text-white mb-3">
                     <div class="card-body">
@@ -276,7 +287,6 @@
                         </div>
                     </fieldset>
                     <br />
-
                     <fieldset class="border col-md-12">
                         <legend>Address Details</legend>
                         <div class="form-group">
@@ -313,19 +323,19 @@
     </div>
 </div>
 
-
 <!-- Client MODAL -->
-
 <div class="modal fade" id="addClientModal">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header bg-warning text-white">
-                <h5 class="modal-title">Add<,,> Client</h5>
+                <h5 class="modal-title">Add Clients</h5>
                 <button class="close" data-dismiss="modal"><span>&times;</span></button>
             </div>
-          
-            <div class="modal-body">
-                <form>
+            @using (Html.BeginForm("Random", "Client"))
+            {
+                <div class="modal-body">
+
+                    @*@Html.AntiForgeryToken()*@
                     <fieldset class="border col-md-12">
                         <legend>Personal Details</legend>
                         <div class="form-group">
@@ -336,15 +346,18 @@
                             @Html.LabelFor(m => m.Customer.NationalIdNumber)
                             @Html.TextBoxFor(m => m.Customer.NationalIdNumber, new { @class = "form-control form-control col-12 mb-3 " })
                             @Html.LabelFor(m => m.Customer.BirthDate)
-                            @Html.TextBoxFor(m => m.Customer.BirthDate, new { @class = "form-control form-control col-12 mb-3 " })
+                            @Html.TextBoxFor(m => m.Customer.BirthDate,"{0:d MM yyyy}", new { @class = "form-control form-control col-12 mb-3 " })
+
                             @Html.LabelFor(m => m.Customer.Gender)
                             @Html.DropDownListFor(m => m.Customer.Gender, new List<SelectListItem>
-                            {
-                                new SelectListItem {Text = "Male", Value = "Male"},
-                                new SelectListItem {Text = "Female", Value = "Male"}
-                            }, "Select Gender", new { @class = "form-control form-control col-12 mb-3 " })
-                            @Html.LabelFor(m => m.Customer.MembershipTypeId)
-                            @Html.DropDownListFor(m => m.Customer.MembershipTypeId, new SelectList(Model.MembershipTypes, "Id", "AgeType"), "Select AgeGroup", new { @class = "form-control form-control col-12 mb-3 " })
+                                                    {
+                                                        new SelectListItem {Text = "Male", Value = "Male"},
+                                                        new SelectListItem {Text = "Female", Value = "Male"}
+                                                    }, "Select Gender", new { @class = "form-control form-control col-12 mb-3 " })
+
+                            @*@Html.LabelFor(m => m.Customer.MembershipTypeId)
+                            @Html.DropDownListFor(m => m.Customer.MembershipTypeId, new SelectList(Model.MembershipTypes, "Id", "AgeType"), "Select AgeGroup", new { @class = "form-control form-control col-12 mb-3 " })*@
+
                         </div>
                     </fieldset>
                     <br />
@@ -375,14 +388,50 @@
                             <input id="client_email_input" placeholder="Email Address" type="text" class="form-control  form-control-md col-12 mb-3 ">
                         </div>
                     </fieldset>
-                    }
-                </form>
-            </div>
-            </div>
-            <div class="modal-footer">
-                <button class="btn btn-secondary" data-dismiss="modal">Dismiss</button>
-                <button type="submit" class="btn btn-danger" id="btn_client_save" data-dismiss="modal">Save Changes</button>
-            </div>
+
+                </div>
+                <div class="modal-footer">
+                    @Html.HiddenFor(m => m.Customer.Id)
+                    <button class="btn btn-secondary" data-dismiss="modal">Dismiss</button>
+                    <button id="btn_client_save" type="submit" class="btn btn-danger" @*data-dismiss="modal"*@>Save Changes</button>
+                    @*@Html.ActionLink("Save Changes","Random","Client", new { @class = "btn btn-danger" })*@
+                </div>
+            }
+
+
         </div>
     </div>
+</div>
+@*<script>
+    $(document).ready(function () {
+        $("#btn_client_save").click(function () {
+
+            var clientForm = $("#clientForm").serialize();
+            $.ajax({
+                type: "POST",
+                url: "client/Create",
+                data: clientForm,
+                success: function () {
+
+                    $("#addClientModal").modal("hide");
+                }
+            });
+            //});
+            //var addClient = function ()
+            //{
+
+
+            //}
+            //$("#btn_client_save").click(function () {
+
+            //});
+        });
+
+</script>*@
+
+
+
+
+
+
 

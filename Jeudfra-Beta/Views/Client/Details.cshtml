@@ -4,24 +4,149 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@*<h2>@Model.Name</h2>*@
-<p>@Model.Name</p>
-<p>@Model.Surname</p>
-<p>@Model.NationalIdNumber</p>
-<p>@Model.MaritalStatus</p>
-@if (Model.BirthDate.HasValue)
+@using (Html.BeginForm("Random", "Client"))
 {
-    <p>@Model.MaritalStatus</p>
-}
-/**/
+    <div class="modal-body">
 
-<p>@Model.Age</p>
-<p>@Model.Gender</p>
-<p>@Model.Cellphone</p>
-<p>@Model.HomeTel</p>
-<p>@Model.WorkTell</p>
-<p>@Model.Email</p>
-<p>@Model.MembershipType.MonthlyPremium</p>
+        @*@Html.AntiForgeryToken()*@
+        <fieldset class="border col-md-12">
+            <legend>Personal Details</legend>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Name)
+                @Html.TextBoxFor(m => m.Name, new { @class = "form-control form-control col-12 mb-3 " })
+                @Html.LabelFor(m => m.Surname)
+                @Html.TextBoxFor(m => m.Surname, new { @class = "form-control form-control col-12 mb-3 " })
+                @Html.LabelFor(m => m.NationalIdNumber)
+                @Html.TextBoxFor(m => m.NationalIdNumber, new { @class = "form-control form-control col-12 mb-3 " })
+                
+                @if (Model.BirthDate.HasValue)
+                {
+                    @Html.LabelFor(m => m.BirthDate)
+                    @Html.TextBoxFor(m => m.BirthDate, "{0:d MMM yyyy}", new { @class = "form-control form-control col-12 mb-3 " })
+                }
+              
+                @Html.LabelFor(m => m.Gender)
+                @Html.TextBoxFor(m => m.Gender, new { @class = "form-control form-control col-12 mb-3 " })
+                @*@Html.LabelFor(m => m.MembershipTypeId)
+                @Html.TextBoxFor(m => m.MembershipTypeId, new { @class = "form-control form-control col-12 mb-3 " })*@
+                @*@Html.LabelFor(m => m.MembershipTypeId)*@
+                @*@Html.DropDownListFor(m => m.MembershipTypeId, new SelectList(Model.MembershipTypes, "Id", "AgeType"), "Select AgeGroup", new { @class = "form-control form-control col-12 mb-3 " })*@
+            </div>
+        </fieldset>
+        <br />
+
+        <fieldset class="border col-md-12">
+            <legend>Address Details</legend>
+            <div class="form-group">
+                <select id="City" class="form-control form-control-md col-12 mb-3">
+                    <option class="active">Select City</option>
+                    <option>Upington</option>
+                    <option>Kakamas</option>
+                    <option>Louisvale</option>
+                </select>
+
+                <input placeholder="Suburb" type="text" class="form-control  form-control-md col-12 mb-3 ">
+                <input placeholder="Street" type="text" class="form-control  form-control-md col-12 mb-3 ">
+                <input placeholder="number" type="text" class="form-control  form-control-md col-12 mb-3 ">
+                <input placeholder="AreaCode" type="text" class="form-control  form-control-md col-12 mb-3 ">
+            </div>
+        </fieldset>
+        <br />
+        <fieldset class="border col-md-12">
+            <legend>Contact Details</legend>
+            <div class="form-group">
+                <input id="client_cell_input" placeholder="Cellphone" type="text" class="form-control form-control-md col-12 mb-3 ">
+                <input id="client_home_tell_input" placeholder="Home Telephone" type="text" class="form-control  form-control-md col-12 mb-3 ">
+                <input id="client_work_tell_input" placeholder="Work Telephone" type="text" class="form-control  form-control-md col-12 mb-3 ">
+                <input id="client_email_input" placeholder="Email Address" type="text" class="form-control  form-control-md col-12 mb-3 ">
+            </div>
+        </fieldset>
+
+    </div>
+    <div class="modal-footer">
+        @Html.HiddenFor(m => m.Id)
+        <button class="btn btn-secondary" data-dismiss="modal">Dismiss</button>
+        <button id="btn_client_saves" type="submit" class="btn btn-danger" @*data-dismiss="modal"*@>Update</button>
+        @*@Html.ActionLink("Save Changes","Random","Client", new { @class = "btn btn-danger" })*@
+    </div>
+
+}
+
+
+<!-- Client MODAL -->
+<div class="modal fade" id="addClientModal">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header bg-warning text-white">
+                <h5 class="modal-title">Add Clients</h5>
+                <button class="close" data-dismiss="modal"><span>&times;</span></button>
+            </div>
+            @using (Html.BeginForm("Random", "Client"))
+            {
+                <div class="modal-body">
+
+                    @*@Html.AntiForgeryToken()*@
+                    <fieldset class="border col-md-12">
+                        <legend>Personal Details</legend>
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.Name)
+                            @Html.TextBoxFor(m => m.Name, new { @class = "form-control form-control col-12 mb-3 " })
+                            @Html.LabelFor(m => m.Surname)
+                            @Html.TextBoxFor(m => m.Surname, new { @class = "form-control form-control col-12 mb-3 " })
+                            @Html.LabelFor(m => m.NationalIdNumber)
+                            @Html.TextBoxFor(m => m.NationalIdNumber, new { @class = "form-control form-control col-12 mb-3 " })
+                            @Html.LabelFor(m => m.BirthDate)
+                            @Html.TextBoxFor(m => m.BirthDate,"{0:d MM yyyy}", new { @class = "form-control form-control col-12 mb-3 " })
+
+                            @Html.LabelFor(m => m.Gender)
+                            @Html.TextBoxFor(m => m.Gender, new { @class = "form-control form-control col-12 mb-3 " })
+
+                            @*@Html.LabelFor(m => m.MembershipTypeId)
+                            @Html.DropDownListFor(m => m.MembershipTypeId, new SelectList(Model.MembershipTypes, "Id", "AgeType"), "Select AgeGroup", new { @class = "form-control form-control col-12 mb-3 " })*@
+                        </div>
+                    </fieldset>
+                    <br />
+
+                    <fieldset class="border col-md-12">
+                        <legend>Address Details</legend>
+                        <div class="form-group">
+                            <select id="City" class="form-control form-control-md col-12 mb-3">
+                                <option class="active">Select City</option>
+                                <option>Upington</option>
+                                <option>Kakamas</option>
+                                <option>Louisvale</option>
+                            </select>
+
+                            <input placeholder="Suburb" type="text" class="form-control  form-control-md col-12 mb-3 ">
+                            <input placeholder="Street" type="text" class="form-control  form-control-md col-12 mb-3 ">
+                            <input placeholder="number" type="text" class="form-control  form-control-md col-12 mb-3 ">
+                            <input placeholder="AreaCode" type="text" class="form-control  form-control-md col-12 mb-3 ">
+                        </div>
+                    </fieldset>
+                    <br />
+                    <fieldset class="border col-md-12">
+                        <legend>Contact Details</legend>
+                        <div class="form-group">
+                            <input id="client_cell_input" placeholder="Cellphone" type="text" class="form-control form-control-md col-12 mb-3 ">
+                            <input id="client_home_tell_input" placeholder="Home Telephone" type="text" class="form-control  form-control-md col-12 mb-3 ">
+                            <input id="client_work_tell_input" placeholder="Work Telephone" type="text" class="form-control  form-control-md col-12 mb-3 ">
+                            <input id="client_email_input" placeholder="Email Address" type="text" class="form-control  form-control-md col-12 mb-3 ">
+                        </div>
+                    </fieldset>
+
+                </div>
+                <div class="modal-footer">
+                    @Html.HiddenFor(m => m.Id)
+                    <button class="btn btn-secondary" data-dismiss="modal">Dismiss</button>
+                    <button id="btn_client_save" type="submit" class="btn btn-danger" @*data-dismiss="modal"*@>Save Changes</button>
+                    @*@Html.ActionLink("Save Changes","Random","Client", new { @class = "btn btn-danger" })*@
+                </div>
+            }
+
+
+        </div>
+    </div>
+</div>
 
 
 

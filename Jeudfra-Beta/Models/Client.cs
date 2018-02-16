@@ -13,6 +13,7 @@ namespace Jeudfra_Beta.Models
         public string Name { get; set; }
         public string Surname { get; set; }
         public string NationalIdNumber { get; set; }
+
         [Display(Name = "Date Of Birth")]
         public DateTime? BirthDate { get; set; }
         public string Age { get; set; }
@@ -23,6 +24,8 @@ namespace Jeudfra_Beta.Models
         public string WorkTell { get; set; }
         public string Email { get; set; }
         public MembershipType MembershipType { get; set; }
+
+        [Display(Name = "MemberShip Types")]
         public byte MembershipTypeId { get; set; }
         public Policy Policy { get; set; }
         public byte PolicyId { get; set; }

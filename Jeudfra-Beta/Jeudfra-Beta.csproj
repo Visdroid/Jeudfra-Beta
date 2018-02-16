@@ -240,6 +240,14 @@
     <Compile Include="Migrations\201802100003559_ChangeMonthlyPremium2.Designer.cs">
       <DependentUpon>201802100003559_ChangeMonthlyPremium2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201802152328312_ChangeMembershipTypePrem.cs" />
+    <Compile Include="Migrations\201802152328312_ChangeMembershipTypePrem.Designer.cs">
+      <DependentUpon>201802152328312_ChangeMembershipTypePrem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802152350536_ChangeMembershipTypePrem1.cs" />
+    <Compile Include="Migrations\201802152350536_ChangeMembershipTypePrem1.Designer.cs">
+      <DependentUpon>201802152350536_ChangeMembershipTypePrem1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Client.cs" />
@@ -249,7 +257,7 @@
     <Compile Include="Models\Policy.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
-    <Compile Include="ViewModels\CustomerViewModel.cs" />
+    <Compile Include="ViewModels\CustomerFormViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-grid.css" />
@@ -271,6 +279,7 @@
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\Customer.js" />
     <Content Include="Scripts\esm\popper-utils.js" />
     <Content Include="Scripts\esm\popper-utils.min.js" />
     <Content Include="Scripts\esm\popper.js" />
@@ -366,6 +375,7 @@
     <Content Include="Views\Client\Details.cshtml" />
     <Content Include="Views\Policy\Details.cshtml" />
     <Content Include="Views\Client\New.cshtml" />
+    <Content Include="Views\Client\CustomerForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -403,6 +413,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201802100003559_ChangeMonthlyPremium2.resx">
       <DependentUpon>201802100003559_ChangeMonthlyPremium2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802152328312_ChangeMembershipTypePrem.resx">
+      <DependentUpon>201802152328312_ChangeMembershipTypePrem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802152350536_ChangeMembershipTypePrem1.resx">
+      <DependentUpon>201802152350536_ChangeMembershipTypePrem1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
