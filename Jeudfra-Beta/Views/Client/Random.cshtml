@@ -36,31 +36,8 @@
         </div>
     </div>
 </section>
-@*<section id="action" class="py-4 mb-4 bg-light">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-3">
-                <a href="#" class="btn btn-primary btn-block " data-toggle="modal" data-target="#addPaymentModal">
-                    <i class="fa fa-plus text-center"></i> Add Client
-                </a>
-                @Html.ActionLink("Add Client", "New",
-                    new { Controller = "Client" }, new { @class = "btn btn-secondary" })
-            </div>
-        </div>
-    </div>
-</section>*@
-
-
-    @*<a href="#" class="btn btn-primary btn-block " data-toggle="modal" data-target="#addPaymentModal">
-        <i class="fa fa-plus text-center"></i> Add Client
-    </a>*@
-    @*@Html.ActionLink("Add Client", "Create",
-        new { Controller = "Home" }, new { @class = "btn btn-secondary" })*@
-
-
 
 <!-- Clients -->
-
 <section id="Clients">
     <div class="container">
         <div class="row">
@@ -102,7 +79,7 @@
                                     <tr>
                                         <td scope="row">@customer.Id</td>
                                         <td>@customer.Name</td>
-                                         <td>@customer.Surname</td>
+                                        <td>@customer.Surname</td>
                                         <td>@customer.Gender</td>
                                         <td>@customer.BirthDate</td>
                                         @*<td>@customer.MaritalStatus</td>*@
@@ -134,4 +111,6 @@
         </div>
     </div>
 </section>
+
+
 

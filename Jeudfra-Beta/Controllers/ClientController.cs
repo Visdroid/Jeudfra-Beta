@@ -9,10 +9,10 @@ using Jeudfra_Beta.ViewModels;
 using System.Data.Entity;
 namespace Jeudfra_Beta.Controllers
 {
-    
+
     public class ClientController : Controller
     {
-       
+
         private ApplicationDbContext _context;
         public ClientController()
         {
@@ -25,30 +25,19 @@ namespace Jeudfra_Beta.Controllers
             _context.Dispose();
         }
         // GET: Client
-        //[HttpGet]
         public ActionResult Random()
         {
-            //var membershipTypes = _context.MembershipTypes.ToList();
+
 
             var customers = _context.Customers.Include(c => c.MembershipType).ToList();
-            return View("Random",customers);
+            return View("Random", customers);
         }
 
-        //public ActionResult Create()
-        //{
-        //    var membershipTypes = _context.MembershipTypes.ToList();
-        //    var viewModel = new CustomerFormViewModel
-        //    {
-        //        MembershipTypes = membershipTypes
-        //    };
-        //      return View(viewModel);
-        //}
-
         [HttpPost]
-        public ActionResult Create(Client customer)
+        public ActionResult Save(Client customer)
         {
             if (customer.Id == 0)
-               _context.Customers.Add(customer);
+                _context.Customers.Add(customer);
             else
             {
                 var customerInDb = _context.Customers.Single(c => c.Id == customer.Id);
@@ -71,7 +60,12 @@ namespace Jeudfra_Beta.Controllers
             if (customer == null)
                 return HttpNotFound();
 
-            return View(customer);
+            var viewModel = new CustomerFormViewModel
+            {
+                Customer = customer,
+                MembershipTypes = _context.MembershipTypes.ToList()
+            };
+            return View(viewModel);
         }
 
     }

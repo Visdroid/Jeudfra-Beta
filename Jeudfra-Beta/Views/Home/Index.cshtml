@@ -40,7 +40,7 @@
             </div>
             @*<div class="col-md-3">
             <a href="#" class="btn btn-warning btn-block" data-toggle="modal" data-target="#addClientModal">
-                <i class="fa fa-plus text-center"></i> Add Client
+                <i class="fa fa-plus text-center"></i> Add Payment
             </a>
         </div>*@
             <div class="col-md-3">
@@ -331,7 +331,7 @@
                 <h5 class="modal-title">Add Clients</h5>
                 <button class="close" data-dismiss="modal"><span>&times;</span></button>
             </div>
-            @using (Html.BeginForm("Random", "Client"))
+            @using (Html.BeginForm("Save", "Client"))
             {
                 <div class="modal-body">
 
@@ -394,7 +394,6 @@
                     @Html.HiddenFor(m => m.Customer.Id)
                     <button class="btn btn-secondary" data-dismiss="modal">Dismiss</button>
                     <button id="btn_client_save" type="submit" class="btn btn-danger" @*data-dismiss="modal"*@>Save Changes</button>
-                    @*@Html.ActionLink("Save Changes","Random","Client", new { @class = "btn btn-danger" })*@
                 </div>
             }
 
@@ -402,34 +401,6 @@
         </div>
     </div>
 </div>
-@*<script>
-    $(document).ready(function () {
-        $("#btn_client_save").click(function () {
-
-            var clientForm = $("#clientForm").serialize();
-            $.ajax({
-                type: "POST",
-                url: "client/Create",
-                data: clientForm,
-                success: function () {
-
-                    $("#addClientModal").modal("hide");
-                }
-            });
-            //});
-            //var addClient = function ()
-            //{
-
-
-            //}
-            //$("#btn_client_save").click(function () {
-
-            //});
-        });
-
-</script>*@
-
-
 
 
 

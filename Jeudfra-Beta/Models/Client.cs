@@ -12,6 +12,8 @@ namespace Jeudfra_Beta.Models
         public int Id { get; set; }
         public string Name { get; set; }
         public string Surname { get; set; }
+
+        [Display(Name = "ID Number")]
         public string NationalIdNumber { get; set; }
 
         [Display(Name = "Date Of Birth")]
