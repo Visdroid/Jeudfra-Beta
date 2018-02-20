@@ -25,17 +25,29 @@ namespace Jeudfra_Beta.Controllers
             _context.Dispose();
         }
         // GET: Client
-        public ActionResult Random()
+        public ViewResult Random()
         {
-
-
-            var customers = _context.Customers.Include(c => c.MembershipType).ToList();
-            return View("Random", customers);
+           IEnumerable<Client> customers = _context.Customers.Include(c => c.Policy).ToList();
+            return View(customers);
         }
 
         [HttpPost]
+        //[ValidateAntiForgeryToken]
         public ActionResult Save(Client customer)
         {
+            if (!ModelState.IsValid)
+            {
+                var viewModel = new CustomerFormViewModel
+                {
+                    Customer = customer,
+                    Policies = _context.Policies.ToList()
+                };
+
+                return RedirectToAction("Random", "Client",viewModel);
+                //var customers = _context.Customers.Include(c => c.MembershipType).ToList();
+               // return View("Random", viewModel);
+            }
+
             if (customer.Id == 0)
                 _context.Customers.Add(customer);
             else
@@ -46,6 +58,7 @@ namespace Jeudfra_Beta.Controllers
                 customerInDb.NationalIdNumber = customer.NationalIdNumber;
                 customerInDb.BirthDate = customer.BirthDate;
                 customerInDb.Gender = customer.Gender;
+                customerInDb.PolicyId = customer.PolicyId;
             }
 
             _context.SaveChanges();
@@ -63,7 +76,7 @@ namespace Jeudfra_Beta.Controllers
             var viewModel = new CustomerFormViewModel
             {
                 Customer = customer,
-                MembershipTypes = _context.MembershipTypes.ToList()
+                Policies = _context.Policies.ToList()
             };
             return View(viewModel);
         }

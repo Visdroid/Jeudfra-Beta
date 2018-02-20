@@ -24,13 +24,19 @@ namespace Jeudfra_Beta.Controllers
             _context.Dispose();
         }
 
-        
+         
         public ActionResult Index()
         {
-            var memberShipTypes = _context.MembershipTypes.ToList();
+            var policies = _context.Policies.ToList();
+           // var customers = _context.Customers.Count();
+           
             var viewModel = new CustomerFormViewModel
             {
-                MembershipTypes = memberShipTypes
+                Customer = new Client(),
+                customersCount = _context.Customers.Count(),
+                Policies = policies,
+                policyCount = _context.Policies.Count()
+                
             };
 
             return View("Index", viewModel);

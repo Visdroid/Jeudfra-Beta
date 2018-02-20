@@ -7,13 +7,13 @@ namespace Jeudfra_Beta.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class ChangeMembershipTypePrem1 : IMigrationMetadata
+    public sealed partial class AlterModels : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(ChangeMembershipTypePrem1));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(AlterModels));
         
         string IMigrationMetadata.Id
         {
-            get { return "201802152350536_ChangeMembershipTypePrem1"; }
+            get { return "201802201021391_AlterModels"; }
         }
         
         string IMigrationMetadata.Source
