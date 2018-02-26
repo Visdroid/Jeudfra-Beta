@@ -6,7 +6,8 @@ using System.Web.Mvc;
 using System.Web.Http;
 using System.Web.Routing;
 using System.Web.Optimization;
-
+using AutoMapper;
+using Jeudfra_Beta.App_Start;
 
 namespace Jeudfra_Beta
 {
@@ -14,6 +15,7 @@ namespace Jeudfra_Beta
     {
         protected void Application_Start()
         {
+            Mapper.Initialize(c => c.AddProfile<MappingProfile>());
             GlobalConfiguration.Configure(WebApiConfig.Register);
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
