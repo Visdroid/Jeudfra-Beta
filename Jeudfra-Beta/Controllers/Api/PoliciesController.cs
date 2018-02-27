@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net;
-using System.Net.Http;
+using System.Web;
 using System.Web.Http;
 using Jeudfra_Beta.Models;
 using Jeudfra_Beta.Dtos;
@@ -10,59 +9,57 @@ using AutoMapper;
 
 namespace Jeudfra_Beta.Controllers.Api
 {
-    public class CustomersController : ApiController
+    public class PoliciesController : ApiController
     {
         private ApplicationDbContext _context;
 
-        public CustomersController()
+        public PoliciesController()
         {
             _context = new ApplicationDbContext();
 
         }
-        //GET /api/Customers
-        public IHttpActionResult GetCustomers()
+        //GET /api/Policies
+        public IEnumerable<PolicyDto> GetPolicies()
         {
-            var customerDtos = _context.Customers.ToList().Select(Mapper.Map<Client, CustomerDto>);
-
-            return Ok(customerDtos);
+            return _context.Policies.ToList().Select(Mapper.Map<Policy, PolicyDto>);
         }
 
-        //GET /api/Customers/1
-        public IHttpActionResult GetCustomer(int id)
+        //GET /api/Policies/1
+        public IHttpActionResult GetPolicy(int id)
         {
-            var customer = _context.Customers.SingleOrDefault(c => c.Id == id);
-            if (customer == null)
+            var policy = _context.Policies.SingleOrDefault(c => c.Id == id);
+            if (policy == null)
                 return NotFound();
-            return Ok(Mapper.Map<Client, CustomerDto>(customer));
+            return Ok(Mapper.Map<Policy, PolicyDto>(policy));
         }
-         
-        //POST /api/Customers
+
+        //POST /api/Policies
         [HttpPost]
-        public IHttpActionResult CreateCustomer(CustomerDto customerDto)
+        public IHttpActionResult CreatePolicy(PolicyDto customerDto)
         {
             if (!ModelState.IsValid)
                 return BadRequest();
 
-            var customer = Mapper.Map<CustomerDto, Client>(customerDto);
-            _context.Customers.Add(customer);
+            var policy = Mapper.Map<PolicyDto, Policy>(customerDto);
+            _context.Policies.Add(policy);
             _context.SaveChanges();
 
-            customerDto.Id = customer.Id;
-            return Created(new Uri(Request.RequestUri + "/" + customer.Id),customerDto);
+            customerDto.Id = policy.Id;
+            return Created(new Uri(Request.RequestUri + "/" + policy.Id), customerDto);
         }
 
-        //PUT /api/Customers/1
+        //PUT /api/Policies/1
         [HttpPut]
-        public IHttpActionResult UpdateCustomer(int id,CustomerDto customerDto)
+        public IHttpActionResult UpdateCustomer(int id, PolicyDto policyDto)
         {
             if (!ModelState.IsValid)
                 return BadRequest();
-            var customerinDb = _context.Customers.SingleOrDefault(c => c.Id == id);
+            var policyinDb = _context.Policies.SingleOrDefault(c => c.Id == id);
 
-            if(customerinDb == null)
+            if (policyinDb == null)
                 return NotFound();
 
-            Mapper.Map(customerDto, customerinDb);
+            Mapper.Map(policyDto, policyinDb);
             //customerinDb.Name = customner.Name;
             //customerinDb.Surname = customner.Surname;
             //customerinDb.NationalIdNumber = customner.NationalIdNumber;
@@ -80,16 +77,16 @@ namespace Jeudfra_Beta.Controllers.Api
             return Ok();
         }
 
-        //DELETE /api/Customers/1
+        //DELETE /api/Policies/1
         [HttpDelete]
         public IHttpActionResult DeleteCustomer(int id)
         {
-            var customerinDb = _context.Customers.SingleOrDefault(c => c.Id == id);
+            var policyinDb = _context.Policies.SingleOrDefault(c => c.Id == id);
 
-            if (customerinDb == null)
+            if (policyinDb == null)
                 return NotFound();
 
-            _context.Customers.Remove(customerinDb);
+            _context.Policies.Remove(policyinDb);
             _context.SaveChanges();
 
             return Ok();

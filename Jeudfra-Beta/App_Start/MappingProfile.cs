@@ -15,7 +15,15 @@ namespace Jeudfra_Beta.App_Start
         {
            
             Mapper.CreateMap<Client, CustomerDto>();
-            Mapper.CreateMap<CustomerDto, Client>();
+           // Mapper.CreateMap<CustomerDto, Client>();
+            Mapper.CreateMap<Policy, PolicyDto>();
+
+            // Dto to Domain
+            Mapper.CreateMap<CustomerDto, Client>()
+                            .ForMember(c => c.Id, opt => opt.Ignore());
+            
+            Mapper.CreateMap<PolicyDto, Policy>()
+                            .ForMember(c => c.Id, opt => opt.Ignore());
         }
     }
 }
