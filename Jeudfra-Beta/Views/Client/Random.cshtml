@@ -14,28 +14,7 @@
         </div>
     </div>
 </header>
-<!-- Search -->
-<section id="action" class="py-4 mb-4 bg-light">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-3">
-                <a href="#" class="btn btn-warning btn-block " data-toggle="modal" data-target="#addPaymentModal">
-                    <i class="fa fa-plus text-center"></i> Add Client
-                </a>
-                @*@Html.ActionLink("Add Client", "New",
-                    new { Controller = "Client" }, new { @class = "btn btn-secondary" })*@
-            </div>
-            <div class="col-mid-6 ml-auto">
-                <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Search">
-                    <span class="input-group-btn">
-                        <button class="btn btn-warning">Search</button>
-                    </span>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+<br />
 
 <!-- Clients -->
 <section id="Clients">
@@ -43,94 +22,80 @@
         <div class="row">
             <div class="col">
                 <div class="card">
-                    @*@if (!Model.Any())
-                        {
-                            <div class="card-header">
-                                <h4>There are No Customers in the Database</h4>
-                            </div>
 
-                        }*@
 
                     <div class="card-header">
                         <h4>Customer Details</h4>
                     </div>
 
-                    <table id="customers" class="table table-striped">
+                    <table id="customers" class="table">
 
                         <thead class="thead-dark text-center ">
                             <tr>
-                                <th>#</th>
+                                @*<th>#</th>*@
                                 <th>Name</th>
                                 <th>Surname</th>
                                 <th>Gender</th>
-                                <th>Policy Type</th>
-                                <th>Monthly Premium</th>
+                                <th>Birthdate</th>
+                                <th>Id Number</th>
+                                <th>City</th>
+                                @*<th>Area Code</th>
+                                <th>Policy</th>*@
                                 <th></th>
                                 <th></th>
-                                @*<th>Marital Status</th>*@
-                                @*<th>Age Group</th>*@
+
 
                             </tr>
                         </thead>
 
                         <tbody class="text-center">
 
-
                             @foreach (var customer in Model)
                             {
-                                <tr>
-                                    <td scope="row">@customer.Id</td>
-                                    <td>@customer.Name</td>
-                                    <td>@customer.Surname</td>
-                                    <td>@customer.Gender</td>
-                                    <td>@customer.Policy.Name</td>
-                                    <td>@customer.Policy.Amount</td>
-                                    @*<td>@customer.MaritalStatus</td>*@
-                                    @*<td>@customer.MembershipType.AgeType</td>*@
-                                    <td>
-                                        @Html.ActionLink("Details", "Details", "Client", new { id = customer.Id }, new { @class = "btn btn-success" })
+                            <tr>
+                                @*<td scope="row">@customer.Id</td>*@
+                                <td>@customer.Name</td>
+                                <td>@customer.Surname</td>
+                                <td>@customer.Gender</td>
+                                <td>@customer.BirthDate</td>
+                                <td>@customer.NationalIdNumber</td>
+                                <td>@customer.City</td>
+                                @*<td>@customer.AreaCode</td>
+                                <td>@customer.Policy.Name</td>*@
+                                @*<td>@customer.MaritalStatus</td>*@
+                                @*<td>@customer.MembershipType.AgeType</td>*@
+                                <td>
+                                    @Html.ActionLink("Details", "Details", "Client", new { id = customer.Id }, new { @class = "btn btn-success" })
 
-                                    </td>
-                                    <td>
-                                        <button data-customer-id="@customer.Id" class="btn btn-danger js-delete">Delete</button>
-                                    </td>
-                                </tr>
+                                </td>
+                                <td>
+                                    <button data-customer-id="@customer.Id" class="btn btn-danger js-delete">Delete</button>
+
+                                </td>
+                            </tr>
                             }
                         </tbody>
 
                     </table>
-                    }
-                    <nav class="ml-4">
-                        <ul class="pagination">
-                            <li class="page-item disabled"><a href="#" class="page-link">Previous</a></li>
-                            <li class="page-item active"><a href="#" class="page-link">1</a></li>
-                            <li class="page-item"><a href="#" class="page-link">2</a></li>
-                            <li class="page-item"><a href="#" class="page-link">3</a></li>
-                            <li class="page-item"><a href="#" class="page-link">4</a></li>
-                            <li class="page-item"><a href="#" class="page-link">5</a></li>
-                            <li class="page-item"><a href="#" class="page-link">6</a></li>
-                            <li class="page-item "><a href="#" class="page-link">>>></a></li>
-                        </ul>
-                    </nav>
+                   
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-@section scripts
-{
+@section  scripts{
     <script>
         $(document).ready(function () {
-            $("#customers").on("click", ".js-delete",function () {
-
+            $("#customers").DataTable();
+           
+            $("#customers").on("click",".js-delete", function () {
                 var button = $(this);
 
                 bootbox.confirm("Are you sure you want to delete this customer?", function (result) {
-
                     if (result) {
                         $.ajax({
-                            url: "/api/customers/" + $(this).attr("data-customer-id"),
+                            url: "/api/customers/" + button.attr("data-customer-id"),
                             method: "DELETE",
                             success: function () {
                                 button.parents("tr").remove();
@@ -138,11 +103,10 @@
                         });
                     }
                 });
-
             });
         });
-    </script>  
-    }
+    </script>
+}
 
 
 

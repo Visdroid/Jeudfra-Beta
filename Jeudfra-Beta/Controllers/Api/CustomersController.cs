@@ -63,21 +63,9 @@ namespace Jeudfra_Beta.Controllers.Api
                 return NotFound();
 
             Mapper.Map(customerDto, customerinDb);
-            //customerinDb.Name = customner.Name;
-            //customerinDb.Surname = customner.Surname;
-            //customerinDb.NationalIdNumber = customner.NationalIdNumber;
-            //customerinDb.BirthDate = customner.BirthDate;
-            //customerinDb.Gender = customner.Gender;
-            //customerinDb.PolicyId = customner.PolicyId;
-            //customerinDb.Cellphone = customner.Cellphone;
-            //customerinDb.HomeTel = customner.HomeTel;
-            //customerinDb.WorkTell = customner.WorkTell;
-            //customerinDb.Email = customner.Email;
-            //customerinDb.Name = customner.Name;
-            //customerinDb.Name = customner.Name;
-
             _context.SaveChanges();
             return Ok();
+
         }
 
         //DELETE /api/Customers/1

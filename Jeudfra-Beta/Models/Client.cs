@@ -25,8 +25,6 @@ namespace Jeudfra_Beta.Models
 
        
         [Display(Name = "Date Of Birth")]
-        // [DataType(DataType.Date)]
-        //[MonthlyPremiumByAgeGroup]
         public DateTime? BirthDate { get; set; }
 
         public string Age { get; set; }
@@ -50,5 +48,11 @@ namespace Jeudfra_Beta.Models
         public int PolicyId { get; set; }
 
         public DateTime? JoinDate { get; set; }
+
+        public string City { get; set; }
+        public string Suburb { get; set; }
+        public string Street { get; set; }
+        public int HouseNumber { get; set; }
+        public int AreaCode { get; set; }
     }
 }
