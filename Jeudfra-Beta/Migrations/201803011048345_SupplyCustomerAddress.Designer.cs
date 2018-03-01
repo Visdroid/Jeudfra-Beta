@@ -6,14 +6,14 @@ namespace Jeudfra_Beta.Migrations
     using System.Data.Entity.Migrations.Infrastructure;
     using System.Resources;
     
-    [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class CapatalizeHouseAndAreaCode : IMigrationMetadata
+    [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
+    public sealed partial class SupplyCustomerAddress : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(CapatalizeHouseAndAreaCode));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(SupplyCustomerAddress));
         
         string IMigrationMetadata.Id
         {
-            get { return "201802280732503_CapatalizeHouseAndAreaCode"; }
+            get { return "201803011048345_SupplyCustomerAddress"; }
         }
         
         string IMigrationMetadata.Source

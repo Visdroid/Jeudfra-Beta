@@ -6,14 +6,14 @@ namespace Jeudfra_Beta.Migrations
     using System.Data.Entity.Migrations.Infrastructure;
     using System.Resources;
     
-    [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class AddCustomerAddress : IMigrationMetadata
+    [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
+    public sealed partial class AddCityAnnotation : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AddCustomerAddress));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(AddCityAnnotation));
         
         string IMigrationMetadata.Id
         {
-            get { return "201802280725359_AddCustomerAddress"; }
+            get { return "201803011305139_AddCityAnnotation"; }
         }
         
         string IMigrationMetadata.Source

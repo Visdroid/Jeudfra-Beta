@@ -49,6 +49,7 @@ namespace Jeudfra_Beta.Models
 
         public DateTime? JoinDate { get; set; }
 
+        [Required]
         public string City { get; set; }
         public string Suburb { get; set; }
         public string Street { get; set; }

@@ -14,8 +14,7 @@ namespace Jeudfra_Beta
                      "~/Scripts/bootbox.js",
                      "~/Scripts/respond.js",
                      "~/scripts/datatables/jquery.datatables.js",
-                     "~/scripts/datatables/datatables.bootstrap4.js"
-                     ));
+                     "~/scripts/datatables/datatables.bootstrap4.js"));
 
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(

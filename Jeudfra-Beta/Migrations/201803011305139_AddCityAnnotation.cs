@@ -3,14 +3,16 @@ namespace Jeudfra_Beta.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class CapatalizeHouseAndAreaCode : DbMigration
+    public partial class AddCityAnnotation : DbMigration
     {
         public override void Up()
         {
+            AlterColumn("dbo.Clients", "City", c => c.String(nullable: false));
         }
         
         public override void Down()
         {
+            AlterColumn("dbo.Clients", "City", c => c.String());
         }
     }
 }

@@ -51,6 +51,12 @@
     <Reference Include="AutoMapper, Version=4.1.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
       <HintPath>..\packages\AutoMapper.4.1.0\lib\net45\AutoMapper.dll</HintPath>
     </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
@@ -138,12 +144,6 @@
   <ItemGroup>
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="EntityFramework">
-      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
-    </Reference>
-    <Reference Include="EntityFramework.SqlServer">
-      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.AspNet.Identity.Core">
       <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
@@ -262,13 +262,13 @@
     <Compile Include="Migrations\201802201021391_AlterModels.Designer.cs">
       <DependentUpon>201802201021391_AlterModels.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201802280725359_AddCustomerAddress.cs" />
-    <Compile Include="Migrations\201802280725359_AddCustomerAddress.Designer.cs">
-      <DependentUpon>201802280725359_AddCustomerAddress.cs</DependentUpon>
+    <Compile Include="Migrations\201803011048345_SupplyCustomerAddress.cs" />
+    <Compile Include="Migrations\201803011048345_SupplyCustomerAddress.Designer.cs">
+      <DependentUpon>201803011048345_SupplyCustomerAddress.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201802280732503_CapatalizeHouseAndAreaCode.cs" />
-    <Compile Include="Migrations\201802280732503_CapatalizeHouseAndAreaCode.Designer.cs">
-      <DependentUpon>201802280732503_CapatalizeHouseAndAreaCode.cs</DependentUpon>
+    <Compile Include="Migrations\201803011305139_AddCityAnnotation.cs" />
+    <Compile Include="Migrations\201803011305139_AddCityAnnotation.Designer.cs">
+      <DependentUpon>201803011305139_AddCityAnnotation.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -565,13 +565,13 @@
     <Content Include="Content\DataTables\css\common.scss" />
     <Content Include="Content\DataTables\css\mixins.scss" />
     <Content Include="Content\DataTables\css\semanticui.scss" />
-    <None Include="Scripts\jquery-3.0.0-vsdoc.js" />
-    <Content Include="Scripts\jquery-3.0.0.js" />
-    <Content Include="Scripts\jquery-3.0.0.min.js" />
-    <Content Include="Scripts\jquery-3.0.0.slim.js" />
-    <Content Include="Scripts\jquery-3.0.0.slim.min.js" />
-    <Content Include="Scripts\jquery-3.0.0.slim.min.map" />
-    <Content Include="Scripts\jquery-3.0.0.min.map" />
+    <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.3.1.js" />
+    <Content Include="Scripts\jquery-3.3.1.min.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.3.1.min.map" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
@@ -679,11 +679,11 @@
     <EmbeddedResource Include="Migrations\201802201021391_AlterModels.resx">
       <DependentUpon>201802201021391_AlterModels.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201802280725359_AddCustomerAddress.resx">
-      <DependentUpon>201802280725359_AddCustomerAddress.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201803011048345_SupplyCustomerAddress.resx">
+      <DependentUpon>201803011048345_SupplyCustomerAddress.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201802280732503_CapatalizeHouseAndAreaCode.resx">
-      <DependentUpon>201802280732503_CapatalizeHouseAndAreaCode.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201803011305139_AddCityAnnotation.resx">
+      <DependentUpon>201803011305139_AddCityAnnotation.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

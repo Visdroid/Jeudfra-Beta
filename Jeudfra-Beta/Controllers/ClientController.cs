@@ -27,8 +27,9 @@ namespace Jeudfra_Beta.Controllers
         // GET: Client
         public ViewResult Random()
         {
-           IEnumerable<Client> customers = _context.Customers.Include(c => c.Policy).ToList();
-            return View(customers);
+           //IEnumerable<Client> customers = _context.Customers.Include(c => c.Policy).ToList();
+           // return View(customers);
+            return View();
         }
 
         [HttpPost]

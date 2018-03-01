@@ -364,10 +364,10 @@
                         <div class="form-group">
                             @Html.LabelFor(m => m.Customer.Gender)
                             @Html.DropDownListFor(m => m.Customer.Gender, new List<SelectListItem>
-                                                {
-                                                    new SelectListItem {Text = "Male", Value = "Male"},
-                                                    new SelectListItem {Text = "Female", Value = "Female"}
-                                                }, "Select Gender", new { @class = "form-control form-control col-12 mb-3 " })
+                                                            {
+                                                                new SelectListItem {Text = "Male", Value = "Male"},
+                                                                new SelectListItem {Text = "Female", Value = "Female"}
+                                                            }, "Select Gender", new { @class = "form-control form-control col-12 mb-3 " })
                             @Html.ValidationMessageFor(m => m.Customer.Gender)
                         </div>
 
@@ -385,11 +385,11 @@
                             <div class="form-group">
                                 @Html.LabelFor(m => m.Customer.City)
                                 @Html.DropDownListFor(m => m.Customer.City, new List<SelectListItem>
-                                    {
-                                        new SelectListItem {Text = "Upington", Value = "Upington"},
-                                        new SelectListItem {Text = "Kakamas", Value = "Kakamas"},
-                                         new SelectListItem {Text = "Louisvale", Value = "Louisvale"}
-                                    }, "Select City", new { @class = "form-control form-control col-12 mb-3 " })
+                                                    {
+                                                        new SelectListItem {Text = "Upington", Value = "Upington"},
+                                                        new SelectListItem {Text = "Kakamas", Value = "Kakamas"},
+                                                         new SelectListItem {Text = "Louisvale", Value = "Louisvale"}
+                                                    }, "Select City", new { @class = "form-control form-control col-12 mb-3 " })
                                 @Html.ValidationMessageFor(m => m.Customer.City)
                             </div>
                             <div class="form-group">
