@@ -43,9 +43,9 @@ namespace Jeudfra_Beta.Models
         [Display(Name = "MemberShip Type")]
         public byte MembershipTypeId { get; set; }
 
-        public Policy Policy { get; set; }
-        [Display(Name = "Policy Type")]
-        public int PolicyId { get; set; }
+        //public Policy Policy { get; set; }
+        //[Display(Name = "Policy Type")]
+        //public int PolicyId { get; set; }
 
         public DateTime? JoinDate { get; set; }
 

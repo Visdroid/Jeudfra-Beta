@@ -216,12 +216,15 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\Api\CustomersController.cs" />
+    <Compile Include="Controllers\Api\NewPaymentController.cs" />
     <Compile Include="Controllers\Api\PoliciesController.cs" />
     <Compile Include="Controllers\ClientController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\PaymentsController.cs" />
     <Compile Include="Controllers\PolicyController.cs" />
     <Compile Include="Dtos\CustomerDto.cs" />
+    <Compile Include="Dtos\NewPaymentDto.cs" />
     <Compile Include="Dtos\PolicyDto.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -270,6 +273,14 @@
     <Compile Include="Migrations\201803011305139_AddCityAnnotation.Designer.cs">
       <DependentUpon>201803011305139_AddCityAnnotation.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201803051459279_RemovePolicyFromClient.cs" />
+    <Compile Include="Migrations\201803051459279_RemovePolicyFromClient.Designer.cs">
+      <DependentUpon>201803051459279_RemovePolicyFromClient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803051515454_AddPayment.cs" />
+    <Compile Include="Migrations\201803051515454_AddPayment.Designer.cs">
+      <DependentUpon>201803051515454_AddPayment.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Client.cs" />
@@ -277,6 +288,7 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MembershipType.cs" />
     <Compile Include="Models\MonthlyPremiumByAgeGroup.cs" />
+    <Compile Include="Models\Payment.cs" />
     <Compile Include="Models\Policy.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -641,6 +653,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Payments\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -684,6 +697,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201803011305139_AddCityAnnotation.resx">
       <DependentUpon>201803011305139_AddCityAnnotation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803051459279_RemovePolicyFromClient.resx">
+      <DependentUpon>201803051459279_RemovePolicyFromClient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803051515454_AddPayment.resx">
+      <DependentUpon>201803051515454_AddPayment.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

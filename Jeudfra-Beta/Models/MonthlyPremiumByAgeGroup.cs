@@ -14,10 +14,10 @@ namespace Jeudfra_Beta.Models
             var customer = (Client)validationContext.ObjectInstance;
 
 
-            if (customer.PolicyId == 1|| customer.PolicyId == 2|| customer.PolicyId == 3
-                || customer.PolicyId == 4|| customer.PolicyId == 5|| customer.PolicyId == 6
-                || customer.PolicyId == 7)
-                return ValidationResult.Success;
+            //if (customer.PolicyId == 1|| customer.PolicyId == 2|| customer.PolicyId == 3
+            //    || customer.PolicyId == 4|| customer.PolicyId == 5|| customer.PolicyId == 6
+            //    || customer.PolicyId == 7)
+            //    return ValidationResult.Success;
           
             if (customer.BirthDate == null)
                 return new ValidationResult("Birthdate is required.");

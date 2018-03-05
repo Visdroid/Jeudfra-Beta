@@ -41,7 +41,7 @@ namespace Jeudfra_Beta.Controllers
                 var viewModel = new CustomerFormViewModel
                 {
                     Customer = customer,
-                    Policies = _context.Policies.ToList()
+                    //Policies = _context.Policies.ToList()
                 };
 
                 return RedirectToAction("Random", "Client",viewModel);
@@ -59,7 +59,7 @@ namespace Jeudfra_Beta.Controllers
                 customerInDb.NationalIdNumber = customer.NationalIdNumber;
                 customerInDb.BirthDate = customer.BirthDate;
                 customerInDb.Gender = customer.Gender;
-                customerInDb.PolicyId = customer.PolicyId;
+               // customerInDb.PolicyId = customer.PolicyId;
                 customerInDb.City = customer.City;
                 customerInDb.Suburb = customer.Suburb;
                 customerInDb.Street = customer.Street;             
@@ -83,7 +83,7 @@ namespace Jeudfra_Beta.Controllers
             var viewModel = new CustomerFormViewModel
             {
                 Customer = customer,
-                Policies = _context.Policies.ToList()
+               // Policies = _context.Policies.ToList()
             };
             return View(viewModel);
         }
