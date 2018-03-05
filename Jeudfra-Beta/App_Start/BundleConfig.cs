@@ -14,6 +14,7 @@ namespace Jeudfra_Beta
                      "~/Scripts/bootbox.js",
                      "~/Scripts/respond.js",
                      "~/scripts/datatables/jquery.datatables.js",
+                     "~/scripts/typeahead.bundle.js",
                      "~/scripts/datatables/datatables.bootstrap4.js"));
 
 
@@ -32,6 +33,7 @@ namespace Jeudfra_Beta
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/content/datatables/css/datatables.bootstrap4.css",
+                      "~/Content/typeahead.css",
                        "~/Content/site.css"));
         }
     }

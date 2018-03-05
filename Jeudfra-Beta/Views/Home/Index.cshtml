@@ -364,10 +364,10 @@
                         <div class="form-group">
                             @Html.LabelFor(m => m.Customer.Gender)
                             @Html.DropDownListFor(m => m.Customer.Gender, new List<SelectListItem>
-                                                                        {
-                                                                            new SelectListItem {Text = "Male", Value = "Male"},
-                                                                            new SelectListItem {Text = "Female", Value = "Female"}
-                                                                        }, "Select Gender", new { @class = "form-control form-control col-12 mb-3 " })
+                                                                                                                                                            {
+                                                                                                                                                                new SelectListItem {Text = "Male", Value = "Male"},
+                                                                                                                                                                new SelectListItem {Text = "Female", Value = "Female"}
+                                                                                                                                                            }, "Select Gender", new { @class = "form-control form-control col-12 mb-3 " })
                             @Html.ValidationMessageFor(m => m.Customer.Gender)
                         </div>
                     </fieldset>
@@ -379,11 +379,11 @@
                             <div class="form-group">
                                 @Html.LabelFor(m => m.Customer.City)
                                 @Html.DropDownListFor(m => m.Customer.City, new List<SelectListItem>
-                                                                    {
-                                                                        new SelectListItem {Text = "Upington", Value = "Upington"},
-                                                                        new SelectListItem {Text = "Kakamas", Value = "Kakamas"},
-                                                                         new SelectListItem {Text = "Louisvale", Value = "Louisvale"}
-                                                                    }, "Select City", new { @class = "form-control form-control col-12 mb-3 " })
+                                                                                                                                                                                    {
+                                                                                                                                                                                        new SelectListItem {Text = "Upington", Value = "Upington"},
+                                                                                                                                                                                        new SelectListItem {Text = "Kakamas", Value = "Kakamas"},
+                                                                                                                                                                                         new SelectListItem {Text = "Louisvale", Value = "Louisvale"}
+                                                                                                                                                                                    }, "Select City", new { @class = "form-control form-control col-12 mb-3 " })
                                 @Html.ValidationMessageFor(m => m.Customer.City)
                             </div>
                             <div class="form-group">
@@ -429,6 +429,103 @@
         </div>
     </div>
 </div>
+
+<!-- Payment MODAL -->
+<div class="modal fade" id="addPaymentModal">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header bg-warning text-white">
+                <h5 class="modal-title">Add Payments</h5>
+                <button class="close" data-dismiss="modal"><span>&times;</span></button>
+            </div>
+            <form>
+                <div class="modal-body">
+                    <fieldset class="border col-md-12">
+                        <legend>Personal Details</legend>
+                        <div class="form-group col-12 mb-3">
+                            <label>Customer</label>
+                            <div class="tt-container ">
+                                <input id="customer" type="text" value="" class="form-control  form-control-md col-12 mb-3 ">
+                            </div>
+                        </div>
+                        <div class="form-group col-12 mb-3">
+                            <label>Policy</label>
+                            <div class="tt-container">
+                                <input id="policyIn" type="text" value="" class="form-control  form-control-md col-12 mb-3 ">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4 col-sm-4">
+                                <ul id="policies" class="list-group"></ul>
+                            </div>
+
+                        </div>
+                        @*<div class="form-group">
+                                <label>Amount</label>
+                                <input type="text" value="" class="form-control  form-control-md col-12 mb-3 ">
+                            </div>*@
+                        <button class="btn btn-danger" data-dismiss="modal">Submit</button>
+                        <br />
+                    </fieldset>
+
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
+            var vm = {
+                policyIds: []
+            };
+            var customers = new Bloodhound({
+                datumTokenizer: Bloodhound.tokenizers.obj.whitespace('name'),
+                queryTokenizer: Bloodhound.tokenizers.whitespace,
+                remote: {
+                    url: '/api/customers?query=%QUERY',
+                    wildcard: '%QUERY'
+                }
+            });
+
+            $('#customer').typeahead({
+                minLength: 3,
+                highlight: true
+            }, {
+                    name: 'customers',
+                    display: 'name',
+                    source: customers
+                }).on("typeahead:select", function (e, customer) {
+                    vm.customerId = customer.id;
+                });
+
+            var policies = new Bloodhound({
+                datumTokenizer: Bloodhound.tokenizers.obj.whitespace('name'),
+                queryTokenizer: Bloodhound.tokenizers.whitespace,
+                remote: {
+                    url: '/api/policies?query=%QUERY',
+                    wildcard: '%QUERY'
+                }
+            });
+
+            $('#policyIn').typeahead({
+                minLength: 3,
+                highlight: true
+            }, {
+                    name: 'policies',
+                    display: 'name',
+                    source: policies
+                }).on("typeahead:select", function (e, policy) {
+                    $("#policies").append("<li class='list-group-item'>" + policy.name + "</li>");
+
+                    $("#policyIn").typeahead("val", "");
+                    vm.policyIds.push(policy.id);
+                    //vm.policyIds.push(policy.id);
+                });
+        });
+    </script>
+}
 
 
 
