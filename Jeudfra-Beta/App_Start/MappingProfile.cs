@@ -18,11 +18,16 @@ namespace Jeudfra_Beta.App_Start
            // Mapper.CreateMap<CustomerDto, Client>();
             Mapper.CreateMap<Policy, PolicyDto>();
 
+            Mapper.CreateMap<Payment, NewPaymentDto>();
+
             // Dto to Domain
             Mapper.CreateMap<CustomerDto, Client>()
                             .ForMember(c => c.Id, opt => opt.Ignore());
             
             Mapper.CreateMap<PolicyDto, Policy>()
+                            .ForMember(c => c.Id, opt => opt.Ignore());
+
+            Mapper.CreateMap<NewPaymentDto, Payment>()
                             .ForMember(c => c.Id, opt => opt.Ignore());
         }
     }

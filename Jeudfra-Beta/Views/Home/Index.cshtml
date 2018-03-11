@@ -216,7 +216,7 @@
                     <div class="card-body">
                         <h3>Payments</h3>
                         <h1 class="display-4">
-                            <i class="fa fa-pencil"></i> 130
+                            <i class="fa fa-pencil"></i> @Model.paymentCount
                         </h1>
                         <a href="posts.html" class="btn btn-outline-light btn-sm">View</a>
                     </div>
@@ -246,7 +246,7 @@
                     <div class="card-body">
                         <h3>Employees</h3>
                         <h1 class="display-4">
-                            <i class="fa fa-users"></i> 48
+                            <i class="fa fa-users"></i> 0
                         </h1>
                         <a href="users.html" class="btn btn-outline-light btn-sm">View</a>
                     </div>
@@ -324,111 +324,153 @@
     </div>
 </div>
 
-<!-- Client MODAL -->
+ @*Client MODAL*@ 
 <div class="modal fade" id="addClientModal">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header bg-warning text-white">
+                    <h5 class="modal-title">Add Clients</h5>
+                    <button class="close" data-dismiss="modal"><span>&times;</span></button>
+                </div>
+                @using (Html.BeginForm("Save", "Client"))
+                {
+
+                    <div class="modal-body">
+                        @Html.ValidationSummary(true, "Please fix the following errors.")
+                        @Html.AntiForgeryToken()
+
+                        <fieldset class="border col-md-12">
+                            <legend>Personal Details</legend>
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.Customer.Name)
+                                @Html.TextBoxFor(m => m.Customer.Name, new { @class = "form-control form-control col-12 mb-3 " })
+                                @Html.ValidationMessageFor(m => m.Customer.Name)
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.Customer.Surname)
+                                @Html.TextBoxFor(m => m.Customer.Surname, new { @class = "form-control form-control col-12 mb-3 " })
+                                @Html.ValidationMessageFor(m => m.Customer.Surname)
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.Customer.NationalIdNumber)
+                                @Html.TextBoxFor(m => m.Customer.NationalIdNumber, new { @class = "form-control form-control col-12 mb-3 " })
+                                @Html.ValidationMessageFor(m => m.Customer.NationalIdNumber)
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.Customer.BirthDate)
+                                @Html.TextBoxFor(m => m.Customer.BirthDate, "{0:d MMM yyyy}", new { @class = "form-control form-control col-12 mb-3 " })
+                                @Html.ValidationMessageFor(m => m.Customer.BirthDate)
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.Customer.Gender)
+                                @Html.DropDownListFor(m => m.Customer.Gender, new List<SelectListItem>
+                                                                                                                                                                                                                            {
+                                                                                                                                                                                                                                new SelectListItem {Text = "Male", Value = "Male"},
+                                                                                                                                                                                                                                new SelectListItem {Text = "Female", Value = "Female"}
+                                                                                                                                                                                                                            }, "Select Gender", new { @class = "form-control form-control col-12 mb-3 " })
+                                @Html.ValidationMessageFor(m => m.Customer.Gender)
+                            </div>
+                        </fieldset>
+                        <br />
+
+                        <fieldset class="border col-md-12">
+                            <legend>Address Details</legend>
+                            <div class="form-group">
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.Customer.City)
+                                    @Html.DropDownListFor(m => m.Customer.City, new List<SelectListItem>
+                                                                                                                                                                                                                                                                        {
+                                                                                                                                                                                                                                                                            new SelectListItem {Text = "Upington", Value = "Upington"},
+                                                                                                                                                                                                                                                                            new SelectListItem {Text = "Kakamas", Value = "Kakamas"},
+                                                                                                                                                                                                                                                                             new SelectListItem {Text = "Louisvale", Value = "Louisvale"}
+                                                                                                                                                                                                                                                                        }, "Select City", new { @class = "form-control form-control col-12 mb-3 " })
+                                    @Html.ValidationMessageFor(m => m.Customer.City)
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.Customer.Suburb)
+                                    @Html.TextBoxFor(m => m.Customer.Suburb, new { @class = "form-control form-control col-12 mb-3 " })
+                                    @Html.ValidationMessageFor(m => m.Customer.Suburb)
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.Customer.Street)
+                                    @Html.TextBoxFor(m => m.Customer.Street, new { @class = "form-control form-control col-12 mb-3 " })
+                                    @Html.ValidationMessageFor(m => m.Customer.Street)
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.Customer.HouseNumber)
+                                    @Html.TextBoxFor(m => m.Customer.HouseNumber, new { @class = "form-control form-control col-12 mb-3 " })
+                                    @Html.ValidationMessageFor(m => m.Customer.HouseNumber)
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.Customer.AreaCode)
+                                    @Html.TextBoxFor(m => m.Customer.AreaCode, new { @class = "form-control form-control col-12 mb-3 " })
+                                    @Html.ValidationMessageFor(m => m.Customer.AreaCode)
+                                </div>
+                            </div>
+                        </fieldset>
+                        <br />
+                        <fieldset class="border col-md-12">
+                            <legend>Contact Details</legend>
+                            <div class="form-group">
+                                <input id="client_cell_input" placeholder="Cellphone" type="text" class="form-control form-control-md col-12 mb-3 ">
+                                <input id="client_home_tell_input" placeholder="Home Telephone" type="text" class="form-control  form-control-md col-12 mb-3 ">
+                                <input id="client_work_tell_input" placeholder="Work Telephone" type="text" class="form-control  form-control-md col-12 mb-3 ">
+                                <input id="client_email_input" placeholder="Email Address" type="text" class="form-control  form-control-md col-12 mb-3 ">
+                            </div>
+                        </fieldset>
+
+                    </div>
+                    <div class="modal-footer">
+                        @Html.HiddenFor(m => m.Customer.Id)
+                        <button class="btn btn-secondary" data-dismiss="modal">Dismiss</button>
+                        <button id="btn_client_save" type="submit" class="btn btn-danger">Save Changes</button>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+
+
+<!-- New Payment MODAL -->
+@*<div class="modal fade" id="addPaymentModal">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header bg-warning text-white">
                 <h5 class="modal-title">Add Clients</h5>
                 <button class="close" data-dismiss="modal"><span>&times;</span></button>
             </div>
-            @using (Html.BeginForm("Save", "Client"))
+            @using (Html.BeginForm("Save", "Payments"))
             {
 
                 <div class="modal-body">
                     @Html.ValidationSummary(true, "Please fix the following errors.")
-                    @*@Html.AntiForgeryToken()*@
+                   
 
                     <fieldset class="border col-md-12">
                         <legend>Personal Details</legend>
                         <div class="form-group">
-                            @Html.LabelFor(m => m.Customer.Name)
-                            @Html.TextBoxFor(m => m.Customer.Name, new { @class = "form-control form-control col-12 mb-3 " })
-                            @Html.ValidationMessageFor(m => m.Customer.Name)
+                            @Html.LabelFor(m => m.Payment.Customer)
+                            @Html.DropDownListFor(m => m.Payment.Customer,new SelectList(Model.Customers,"Id","Name"),"Select Customer", new { @class = "form-control form-control col-12 mb-3 " })
+                            @Html.ValidationMessageFor(m => m.Payment.Customer)
                         </div>
                         <div class="form-group">
-                            @Html.LabelFor(m => m.Customer.Surname)
-                            @Html.TextBoxFor(m => m.Customer.Surname, new { @class = "form-control form-control col-12 mb-3 " })
-                            @Html.ValidationMessageFor(m => m.Customer.Surname)
+                            @Html.LabelFor(m => m.Payment.Policy)
+                            @Html.DropDownListFor(m => m.Payment.Policy, new SelectList(Model.Policies, "Id", "Name"), "Select Customer", new { @class = "form-control form-control col-12 mb-3 " })
+                            @Html.ValidationMessageFor(m => m.Payment.Customer)
                         </div>
-                        <div class="form-group">
-                            @Html.LabelFor(m => m.Customer.NationalIdNumber)
-                            @Html.TextBoxFor(m => m.Customer.NationalIdNumber, new { @class = "form-control form-control col-12 mb-3 " })
-                            @Html.ValidationMessageFor(m => m.Customer.NationalIdNumber)
-                        </div>
-                        <div class="form-group">
-                            @Html.LabelFor(m => m.Customer.BirthDate)
-                            @Html.TextBoxFor(m => m.Customer.BirthDate, "{0:d MMM yyyy}", new { @class = "form-control form-control col-12 mb-3 " })
-                            @Html.ValidationMessageFor(m => m.Customer.BirthDate)
-                        </div>
-                        <div class="form-group">
-                            @Html.LabelFor(m => m.Customer.Gender)
-                            @Html.DropDownListFor(m => m.Customer.Gender, new List<SelectListItem>
-                                                                                                                                                            {
-                                                                                                                                                                new SelectListItem {Text = "Male", Value = "Male"},
-                                                                                                                                                                new SelectListItem {Text = "Female", Value = "Female"}
-                                                                                                                                                            }, "Select Gender", new { @class = "form-control form-control col-12 mb-3 " })
-                            @Html.ValidationMessageFor(m => m.Customer.Gender)
-                        </div>
+                        
                     </fieldset>
                     <br />
-
-                    <fieldset class="border col-md-12">
-                        <legend>Address Details</legend>
-                        <div class="form-group">
-                            <div class="form-group">
-                                @Html.LabelFor(m => m.Customer.City)
-                                @Html.DropDownListFor(m => m.Customer.City, new List<SelectListItem>
-                                                                                                                                                                                    {
-                                                                                                                                                                                        new SelectListItem {Text = "Upington", Value = "Upington"},
-                                                                                                                                                                                        new SelectListItem {Text = "Kakamas", Value = "Kakamas"},
-                                                                                                                                                                                         new SelectListItem {Text = "Louisvale", Value = "Louisvale"}
-                                                                                                                                                                                    }, "Select City", new { @class = "form-control form-control col-12 mb-3 " })
-                                @Html.ValidationMessageFor(m => m.Customer.City)
-                            </div>
-                            <div class="form-group">
-                                @Html.LabelFor(m => m.Customer.Suburb)
-                                @Html.TextBoxFor(m => m.Customer.Suburb, new { @class = "form-control form-control col-12 mb-3 " })
-                                @Html.ValidationMessageFor(m => m.Customer.Suburb)
-                            </div>
-                            <div class="form-group">
-                                @Html.LabelFor(m => m.Customer.Street)
-                                @Html.TextBoxFor(m => m.Customer.Street, new { @class = "form-control form-control col-12 mb-3 " })
-                                @Html.ValidationMessageFor(m => m.Customer.Street)
-                            </div>
-                            <div class="form-group">
-                                @Html.LabelFor(m => m.Customer.HouseNumber)
-                                @Html.TextBoxFor(m => m.Customer.HouseNumber, new { @class = "form-control form-control col-12 mb-3 " })
-                                @Html.ValidationMessageFor(m => m.Customer.HouseNumber)
-                            </div>
-                            <div class="form-group">
-                                @Html.LabelFor(m => m.Customer.AreaCode)
-                                @Html.TextBoxFor(m => m.Customer.AreaCode, new { @class = "form-control form-control col-12 mb-3 " })
-                                @Html.ValidationMessageFor(m => m.Customer.AreaCode)
-                            </div>
-                        </div>
-                    </fieldset>
-                    <br />
-                    <fieldset class="border col-md-12">
-                        <legend>Contact Details</legend>
-                        <div class="form-group">
-                            <input id="client_cell_input" placeholder="Cellphone" type="text" class="form-control form-control-md col-12 mb-3 ">
-                            <input id="client_home_tell_input" placeholder="Home Telephone" type="text" class="form-control  form-control-md col-12 mb-3 ">
-                            <input id="client_work_tell_input" placeholder="Work Telephone" type="text" class="form-control  form-control-md col-12 mb-3 ">
-                            <input id="client_email_input" placeholder="Email Address" type="text" class="form-control  form-control-md col-12 mb-3 ">
-                        </div>
-                    </fieldset>
-
                 </div>
                 <div class="modal-footer">
-                    @Html.HiddenFor(m => m.Customer.Id)
+                    @Html.HiddenFor(m => m.Payment.Id)
                     <button class="btn btn-secondary" data-dismiss="modal">Dismiss</button>
-                    <button id="btn_client_save" type="submit" class="btn btn-danger" @*data-dismiss="modal"*@>Save Changes</button>
+                    <button id="btn_client_save" type="submit" class="btn btn-danger">Save Changes</button>
                 </div>
             }
         </div>
     </div>
-</div>
+</div>*@
 
 <!-- Payment MODAL -->
 <div class="modal fade" id="addPaymentModal">
@@ -438,14 +480,14 @@
                 <h5 class="modal-title">Add Payments</h5>
                 <button class="close" data-dismiss="modal"><span>&times;</span></button>
             </div>
-            <form>
+            <form id="newPay" name="newPay" @*method="post"  action="api/newPayment/CreateNewPayment"*@>
                 <div class="modal-body">
                     <fieldset class="border col-md-12">
                         <legend>Personal Details</legend>
                         <div class="form-group col-12 mb-3">
                             <label>Customer</label>
                             <div class="tt-container ">
-                                <input id="customer" type="text" value="" class="form-control  form-control-md col-12 mb-3 ">
+                                <input id="customerIn" type="text" value="" class="form-control  form-control-md col-12 mb-3 ">
                             </div>
                         </div>
                         <div class="form-group col-12 mb-3">
@@ -458,24 +500,20 @@
                             <div class="col-md-4 col-sm-4">
                                 <ul id="policies" class="list-group"></ul>
                             </div>
-
                         </div>
-                        @*<div class="form-group">
-                                <label>Amount</label>
-                                <input type="text" value="" class="form-control  form-control-md col-12 mb-3 ">
-                            </div>*@
-                        <button class="btn btn-danger" data-dismiss="modal">Submit</button>
                         <br />
                     </fieldset>
-
+                    <br />
+                    <button type="submit" class="btn btn-danger">Submit</button>
                 </div>
+                <br />
             </form>
         </div>
     </div>
 </div>
 @section scripts
 {
-    <script>
+    <script type="text/javascript">
         $(document).ready(function () {
             var vm = {
                 policyIds: []
@@ -489,7 +527,7 @@
                 }
             });
 
-            $('#customer').typeahead({
+            $('#customerIn').typeahead({
                 minLength: 3,
                 highlight: true
             }, {
@@ -523,6 +561,22 @@
                     vm.policyIds.push(policy.id);
                     //vm.policyIds.push(policy.id);
                 });
+
+            $('#newPay').submit( function (e) {
+                e.preventDefault();
+
+                $.ajax({
+                    url: '/api/newPayment/',
+                    method: 'POST',
+                    //dataType: 'application/json',
+                    data: vm
+                })
+                .done(function () {
+                        toastr.success("Payments successfully recorded.");
+                }).fail(function () {
+                        toastr.error("Something unexpected happened.");
+                });
+            });
         });
     </script>
 }

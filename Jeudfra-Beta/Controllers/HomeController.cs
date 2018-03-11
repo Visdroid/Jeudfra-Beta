@@ -28,6 +28,7 @@ namespace Jeudfra_Beta.Controllers
         public ActionResult Index()
         {
             var policies = _context.Policies.ToList();
+            var customers = _context.Customers.ToList();
            // var customers = _context.Customers.Count();
            
             var viewModel = new CustomerFormViewModel
@@ -35,7 +36,9 @@ namespace Jeudfra_Beta.Controllers
                 Customer = new Client(),
                 customersCount = _context.Customers.Count(),
                 Policies = policies,
-                policyCount = _context.Policies.Count()
+                Customers = customers,
+                policyCount = _context.Policies.Count(),
+                paymentCount = _context.Payments.Count()
                 
             };
 

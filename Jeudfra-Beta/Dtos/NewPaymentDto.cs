@@ -9,5 +9,7 @@ namespace Jeudfra_Beta.Dtos
     {
         public int CustomerId { get; set; }
         public List<int> PolicyIds { get; set; }
+        public CustomerDto Customer { get; set; }
+        public PolicyDto Policy { get; set; }
     }
 }

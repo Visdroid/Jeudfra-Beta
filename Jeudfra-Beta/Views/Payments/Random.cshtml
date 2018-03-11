@@ -1,0 +1,113 @@
+﻿@using System.Web.Mvc.Html
+@model IEnumerable<Jeudfra_Beta.Models.Payment>
+
+
+@{
+    ViewBag.Title = "Payments Page";
+}
+<header id="main-header" class="py2 bg-warning text-white">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h1><i class="fa fa-users"></i> Payments</h1>
+            </div>
+        </div>
+    </div>
+</header>
+<br />
+
+<!-- Clients -->
+<section id="Clients">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Payment Details</h4>
+                    </div>
+                    <table id="payments" class="table">
+                        <thead>
+                            <tr>
+                                @*<th>#</th>*@
+                                <th>Name</th>
+                                <th>Surname</th>
+                                <th>Policy</th>
+                                <th>Amount</th>
+                                @*<th>Details</th>*@
+                                <th>City</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section  scripts{
+    <script>
+        $(document).ready(function () {
+            var table = $("#payments").DataTable({
+                //dom: 'Bfrtip',
+                buttons: [
+                    'copy', 'csv', 'excel', 'pdf', 'print'
+                ],
+                ajax: {
+                    url: "/api/newPayment",
+                    dataSrc: ""
+                },
+               
+                columns: [
+                    {
+                        data: "customer.name"
+                    },
+                    {
+                        data: "customer.surname"
+                    },
+                    {
+                        data: "policy.name"
+                    },
+                    {
+                        data: "policy.amount"
+                    },
+                    {
+                        data: "customer.city"
+                    }
+                    //{
+                    //    data: "id",
+                    //    render: function (data, type, payment) {
+                    //        return "<a href='/payments/details/" + payment.id + "' class='btn btn-success'>Details </a>";
+                    //    }
+                    //},
+                    //{
+                    //    data: "id",
+                    //    render: function (data) {
+                    //        return "<button class='btn btn-danger js-delete' data-payment-id=" + data + ">Delete</button>";
+                    //    }
+                    //}
+
+                ],
+                
+            });
+            $("#payments").on("click", ".js-delete", function () {
+                var button = $(this);
+
+                bootbox.confirm("Are you sure you want to delete this payment?", function (result) {
+                    if (result) {
+                        $.ajax({
+                            url: "/api/newPayment/" + button.attr("data-payment-id"),
+                            method: "DELETE",
+                            success: function () {
+                                table.row(button.parents("tr")).remove().draw();
+                            }
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+}
+
+
+
