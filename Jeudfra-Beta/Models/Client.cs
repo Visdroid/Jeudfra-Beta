@@ -33,12 +33,6 @@ namespace Jeudfra_Beta.Models
         [Required]
         public string Gender { get; set; }
 
-
-        public string Cellphone { get; set; }
-        public string HomeTel { get; set; }
-        public string WorkTell { get; set; }
-        public string Email { get; set; }
-
         public MembershipType MembershipType { get; set; }
         [Display(Name = "MemberShip Type")]
         public byte MembershipTypeId { get; set; }
