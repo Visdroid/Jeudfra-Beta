@@ -60,11 +60,11 @@ namespace Jeudfra_Beta.Controllers
                 customerInDb.BirthDate = customer.BirthDate;
                 customerInDb.Gender = customer.Gender;
                // customerInDb.PolicyId = customer.PolicyId;
-                customerInDb.City = customer.City;
-                customerInDb.Suburb = customer.Suburb;
-                customerInDb.Street = customer.Street;             
-                customerInDb.HouseNumber = customer.HouseNumber;
-                customerInDb.AreaCode = customer.AreaCode;
+                //customerInDb.City = customer.City;
+                //customerInDb.Suburb = customer.Suburb;
+                //customerInDb.Street = customer.Street;             
+                //customerInDb.HouseNumber = customer.HouseNumber;
+                //customerInDb.AreaCode = customer.AreaCode;
 
             }
 

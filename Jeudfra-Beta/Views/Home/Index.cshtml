@@ -373,17 +373,15 @@
                         </fieldset>
                         <br />
 
-                        <fieldset class="border col-md-12">
+                        @*<fieldset class="border col-md-12">
                             <legend>Address Details</legend>
                             <div class="form-group">
                                 <div class="form-group">
                                     @Html.LabelFor(m => m.Customer.City)
                                     @Html.DropDownListFor(m => m.Customer.City, new List<SelectListItem>
                                                                                                                                                                                                                                                                         {
-                                                                                                                                                                                                                                                                            new SelectListItem {Text = "Upington", Value = "Upington"},
-                                                                                                                                                                                                                                                                            new SelectListItem {Text = "Kakamas", Value = "Kakamas"},
-                                                                                                                                                                                                                                                                             new SelectListItem {Text = "Louisvale", Value = "Louisvale"}
-                                                                                                                                                                                                                                                                        }, "Select City", new { @class = "form-control form-control col-12 mb-3 " })
+                                                                                                                                                                                                                                                                            new SelectListItem {Text = "Upington", Value = "Upington"},                                                                                                                                                                                                                                                                           new SelectListItem {Text = "Kakamas", Value = "Kakamas"},
+                                                                                                                                                                                                                                                                             new SelectListItem {Text = "Louisvale", Value = "Louisvale"}                                                                                                                                                                                                                                                                        }, "Select City", new { @class = "form-control form-control col-12 mb-3 " })
                                     @Html.ValidationMessageFor(m => m.Customer.City)
                                 </div>
                                 <div class="form-group">
@@ -407,8 +405,9 @@
                                     @Html.ValidationMessageFor(m => m.Customer.AreaCode)
                                 </div>
                             </div>
-                        </fieldset>
+                        </fieldset>*@
                         <br />
+
                         <fieldset class="border col-md-12">
                             <legend>Contact Details</legend>
                             <div class="form-group">

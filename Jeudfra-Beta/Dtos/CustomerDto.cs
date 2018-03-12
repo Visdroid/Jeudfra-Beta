@@ -48,14 +48,15 @@ namespace Jeudfra_Beta.Dtos
         //public Policy Policy { get; set; }
        // [Display(Name = "Policy Type")]
         public int PolicyId { get; set; }
+        public int AddressId { get; set; }
 
         public DateTime? JoinDate { get; set; }
 
-        [Required]
-        public string City { get; set; }
-        public string Suburb { get; set; }
-        public string Street { get; set; }
-        public int HouseNumber { get; set; }
-        public int AreaCode { get; set; }
+        //[Required]
+        //public string City { get; set; }
+        //public string Suburb { get; set; }
+        //public string Street { get; set; }
+        //public int HouseNumber { get; set; }
+        //public int AreaCode { get; set; }
     }
 }

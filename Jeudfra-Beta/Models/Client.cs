@@ -11,7 +11,7 @@ namespace Jeudfra_Beta.Models
     {
         public int Id { get; set; }
 
-     
+
         [StringLength(255)]
         [Required]
         public string Name { get; set; }
@@ -23,7 +23,7 @@ namespace Jeudfra_Beta.Models
         [Display(Name = "ID Number")]
         public string NationalIdNumber { get; set; }
 
-       
+
         [Display(Name = "Date Of Birth")]
         public DateTime? BirthDate { get; set; }
 
@@ -38,22 +38,14 @@ namespace Jeudfra_Beta.Models
         public string HomeTel { get; set; }
         public string WorkTell { get; set; }
         public string Email { get; set; }
-        public MembershipType MembershipType { get; set; }
 
+        public MembershipType MembershipType { get; set; }
         [Display(Name = "MemberShip Type")]
         public byte MembershipTypeId { get; set; }
 
-        //public Policy Policy { get; set; }
-        //[Display(Name = "Policy Type")]
-        //public int PolicyId { get; set; }
-
         public DateTime? JoinDate { get; set; }
 
-        [Required]
-        public string City { get; set; }
-        public string Suburb { get; set; }
-        public string Street { get; set; }
-        public int HouseNumber { get; set; }
-        public int AreaCode { get; set; }
+        public Address Address { get; set; }
+        public byte AddressId { get; set; }
     }
 }

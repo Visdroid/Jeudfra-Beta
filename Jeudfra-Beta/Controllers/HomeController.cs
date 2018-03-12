@@ -37,6 +37,7 @@ namespace Jeudfra_Beta.Controllers
                 customersCount = _context.Customers.Count(),
                 Policies = policies,
                 Customers = customers,
+                //Address =
                 policyCount = _context.Policies.Count(),
                 paymentCount = _context.Payments.Count()
                 

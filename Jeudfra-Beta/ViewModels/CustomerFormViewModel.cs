@@ -14,6 +14,7 @@ namespace Jeudfra_Beta.ViewModels
 
         public Client Customer { get; set; }
         public Payment Payment { get; set; }
+        //public Address Address { get; set; }
 
         public int customersCount { get; set; }
         public int policyCount { get; set; }      
