@@ -27,6 +27,7 @@ namespace Jeudfra_Beta.Models
         public DbSet<Address> Addresses { get; set; }
         public DbSet<ContactDetail> ContactDetails { get; set; }
         public DbSet<Spouse> Spouses { get; set; }
+        public DbSet<UnderWriter> UnderWriters { get; set; }
 
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)

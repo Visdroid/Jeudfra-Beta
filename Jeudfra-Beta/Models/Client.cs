@@ -48,5 +48,8 @@ namespace Jeudfra_Beta.Models
         public ContactDetail ContactDetail { get; set; }
         public byte ContactDetailId { get; set; }
 
+        public UnderWriter UnderWriter { get; set; }
+        public byte UnderWriterId { get; set; }
+
     }
 }
