@@ -41,5 +41,12 @@ namespace Jeudfra_Beta.Models
 
         public Address Address { get; set; }
         public byte AddressId { get; set; }
+
+        public Spouse Spouse { get; set; }
+        public byte SpouseId { get; set; }
+
+        public ContactDetail ContactDetail { get; set; }
+        public byte ContactDetailId { get; set; }
+
     }
 }

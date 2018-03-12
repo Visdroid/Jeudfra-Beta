@@ -26,6 +26,8 @@ namespace Jeudfra_Beta.Models
         public DbSet<Payment> Payments { get; set; }
         public DbSet<Address> Addresses { get; set; }
         public DbSet<ContactDetail> ContactDetails { get; set; }
+        public DbSet<Spouse> Spouses { get; set; }
+
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {

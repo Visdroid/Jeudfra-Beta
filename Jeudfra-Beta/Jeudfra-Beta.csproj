@@ -305,6 +305,14 @@
     <Compile Include="Migrations\201803122150437_CreateContactDetails.Designer.cs">
       <DependentUpon>201803122150437_CreateContactDetails.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201803122156194_CreateSpouses.cs" />
+    <Compile Include="Migrations\201803122156194_CreateSpouses.Designer.cs">
+      <DependentUpon>201803122156194_CreateSpouses.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803122200410_SpouseAndContactDetailForeinKeyToClient.cs" />
+    <Compile Include="Migrations\201803122200410_SpouseAndContactDetailForeinKeyToClient.Designer.cs">
+      <DependentUpon>201803122200410_SpouseAndContactDetailForeinKeyToClient.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Address.cs" />
@@ -316,6 +324,7 @@
     <Compile Include="Models\MonthlyPremiumByAgeGroup.cs" />
     <Compile Include="Models\Payment.cs" />
     <Compile Include="Models\Policy.cs" />
+    <Compile Include="Models\Spouse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\CustomerFormViewModel.cs" />
@@ -760,6 +769,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201803122150437_CreateContactDetails.resx">
       <DependentUpon>201803122150437_CreateContactDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803122156194_CreateSpouses.resx">
+      <DependentUpon>201803122156194_CreateSpouses.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803122200410_SpouseAndContactDetailForeinKeyToClient.resx">
+      <DependentUpon>201803122200410_SpouseAndContactDetailForeinKeyToClient.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
