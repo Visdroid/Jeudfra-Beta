@@ -20,6 +20,8 @@ namespace Jeudfra_Beta.App_Start
 
             Mapper.CreateMap<Payment, NewPaymentDto>();
 
+            Mapper.CreateMap<Address, AddressDto>();
+
             // Dto to Domain
             Mapper.CreateMap<CustomerDto, Client>()
                             .ForMember(c => c.Id, opt => opt.Ignore());

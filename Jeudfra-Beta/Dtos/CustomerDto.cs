@@ -40,13 +40,13 @@ namespace Jeudfra_Beta.Dtos
         public string HomeTel { get; set; }
         public string WorkTell { get; set; }
         public string Email { get; set; }
-       // public MembershipType MembershipType { get; set; }
+        // public MembershipType MembershipType { get; set; }
 
         //[Display(Name = "MemberShip Type")]
-       // public byte MembershipTypeId { get; set; }
+         public AddressDto Address { get; set; }
 
         //public Policy Policy { get; set; }
-       // [Display(Name = "Policy Type")]
+        // [Display(Name = "Policy Type")]
         public int PolicyId { get; set; }
         public int AddressId { get; set; }
 

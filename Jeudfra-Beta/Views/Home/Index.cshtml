@@ -373,39 +373,39 @@
                         </fieldset>
                         <br />
 
-                        @*<fieldset class="border col-md-12">
+                        <fieldset class="border col-md-12">
                             <legend>Address Details</legend>
                             <div class="form-group">
                                 <div class="form-group">
-                                    @Html.LabelFor(m => m.Customer.City)
-                                    @Html.DropDownListFor(m => m.Customer.City, new List<SelectListItem>
+                                    @Html.LabelFor(m => m.Customer.Address.City)
+                                    @Html.DropDownListFor(m => m.Customer.Address.City, new List<SelectListItem>
                                                                                                                                                                                                                                                                         {
                                                                                                                                                                                                                                                                             new SelectListItem {Text = "Upington", Value = "Upington"},                                                                                                                                                                                                                                                                           new SelectListItem {Text = "Kakamas", Value = "Kakamas"},
                                                                                                                                                                                                                                                                              new SelectListItem {Text = "Louisvale", Value = "Louisvale"}                                                                                                                                                                                                                                                                        }, "Select City", new { @class = "form-control form-control col-12 mb-3 " })
-                                    @Html.ValidationMessageFor(m => m.Customer.City)
+                                    @Html.ValidationMessageFor(m => m.Customer.Address.City)
                                 </div>
                                 <div class="form-group">
-                                    @Html.LabelFor(m => m.Customer.Suburb)
-                                    @Html.TextBoxFor(m => m.Customer.Suburb, new { @class = "form-control form-control col-12 mb-3 " })
-                                    @Html.ValidationMessageFor(m => m.Customer.Suburb)
+                                    @Html.LabelFor(m => m.Customer.Address.Suburb)
+                                    @Html.TextBoxFor(m => m.Customer.Address.Suburb, new { @class = "form-control form-control col-12 mb-3 " })
+                                    @Html.ValidationMessageFor(m => m.Customer.Address.Suburb)
                                 </div>
                                 <div class="form-group">
-                                    @Html.LabelFor(m => m.Customer.Street)
-                                    @Html.TextBoxFor(m => m.Customer.Street, new { @class = "form-control form-control col-12 mb-3 " })
-                                    @Html.ValidationMessageFor(m => m.Customer.Street)
+                                    @Html.LabelFor(m => m.Customer.Address.Street)
+                                    @Html.TextBoxFor(m => m.Customer.Address.Street, new { @class = "form-control form-control col-12 mb-3 " })
+                                    @Html.ValidationMessageFor(m => m.Customer.Address.Street)
                                 </div>
                                 <div class="form-group">
-                                    @Html.LabelFor(m => m.Customer.HouseNumber)
-                                    @Html.TextBoxFor(m => m.Customer.HouseNumber, new { @class = "form-control form-control col-12 mb-3 " })
-                                    @Html.ValidationMessageFor(m => m.Customer.HouseNumber)
+                                    @Html.LabelFor(m => m.Customer.Address.HouseNumber)
+                                    @Html.TextBoxFor(m => m.Customer.Address.HouseNumber, new { @class = "form-control form-control col-12 mb-3 " })
+                                    @Html.ValidationMessageFor(m => m.Customer.Address.HouseNumber)
                                 </div>
                                 <div class="form-group">
-                                    @Html.LabelFor(m => m.Customer.AreaCode)
-                                    @Html.TextBoxFor(m => m.Customer.AreaCode, new { @class = "form-control form-control col-12 mb-3 " })
-                                    @Html.ValidationMessageFor(m => m.Customer.AreaCode)
+                                    @Html.LabelFor(m => m.Customer.Address.AreaCode)
+                                    @Html.TextBoxFor(m => m.Customer.Address.AreaCode, new { @class = "form-control form-control col-12 mb-3 " })
+                                    @Html.ValidationMessageFor(m => m.Customer.Address.AreaCode)
                                 </div>
                             </div>
-                        </fieldset>*@
+                        </fieldset>
                         <br />
 
                         <fieldset class="border col-md-12">

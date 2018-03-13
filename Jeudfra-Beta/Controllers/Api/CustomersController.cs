@@ -6,6 +6,7 @@ using System.Net.Http;
 using System.Web.Http;
 using Jeudfra_Beta.Models;
 using Jeudfra_Beta.Dtos;
+using System.Data.Entity;
 using AutoMapper;
 
 namespace Jeudfra_Beta.Controllers.Api
@@ -23,7 +24,8 @@ namespace Jeudfra_Beta.Controllers.Api
         public IHttpActionResult GetCustomers()
         {
 
-            var customerDtos = _context.Customers.ToList()
+            var customerDtos = _context.Customers
+                .Include(c => c.Address).ToList()
                 .Select(Mapper.Map<Client, CustomerDto>);
 
             return Ok(customerDtos);

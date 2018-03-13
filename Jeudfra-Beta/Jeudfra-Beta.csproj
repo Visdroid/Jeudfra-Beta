@@ -223,6 +223,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PaymentsController.cs" />
     <Compile Include="Controllers\PolicyController.cs" />
+    <Compile Include="Dtos\AddressDto.cs" />
     <Compile Include="Dtos\CustomerDto.cs" />
     <Compile Include="Dtos\NewPaymentDto.cs" />
     <Compile Include="Dtos\PolicyDto.cs" />
