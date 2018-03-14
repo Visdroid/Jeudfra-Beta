@@ -10,6 +10,7 @@ namespace Jeudfra_Beta.ViewModels
     {
         //public IEnumerable<MembershipType> MembershipTypes { get; set; }
         public IEnumerable<Policy> Policies { get; set; }
+        public IEnumerable<UnderWriter> UnderWriters { get; set; }
         public IEnumerable<Client> Customers { get; set; }
 
         public Client Customer { get; set; }

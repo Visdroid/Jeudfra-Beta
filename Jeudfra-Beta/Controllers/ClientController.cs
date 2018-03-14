@@ -41,7 +41,7 @@ namespace Jeudfra_Beta.Controllers
                 var viewModel = new CustomerFormViewModel
                 {
                     Customer = customer,
-                    //Policies = _context.Policies.ToList()
+                    UnderWriters = _context.UnderWriters.ToList()
                 };
 
                 return RedirectToAction("Random", "Client",viewModel);
@@ -53,7 +53,7 @@ namespace Jeudfra_Beta.Controllers
                 _context.Customers.Add(customer);
             else
             {
-                var customerInDb = _context.Customers.Include(c => c.Address).Include(c => c.Spouse).Single(c => c.Id == customer.Id);
+                var customerInDb = _context.Customers.Include(c => c.Address).Include(c => c.Spouse).Include(c => c.UnderWriter).Single(c => c.Id == customer.Id);
                 customerInDb.Name = customer.Name;
                 customerInDb.Surname = customer.Surname;
                 customerInDb.NationalIdNumber = customer.NationalIdNumber;
@@ -73,6 +73,10 @@ namespace Jeudfra_Beta.Controllers
                 customerInDb.Spouse.BirthDate = customer.Spouse.BirthDate;
                 customerInDb.Spouse.Gender = customer.Spouse.Gender;
 
+                customerInDb.UnderWriter.Name = customer.UnderWriter.Name;
+                //customerInDb.Spouse.Surname = customer.Spouse.Surname;
+                //customerInDb.Spouse.NationalIdNumber = customer.Spouse.NationalIdNumber;
+
             }
 
             _context.SaveChanges();
@@ -86,6 +90,8 @@ namespace Jeudfra_Beta.Controllers
             var customer = _context.Customers
                 .Include(c => c.Address)
                 .Include(c => c.Spouse)
+                .Include(c => c.Spouse)
+                .Include(C => C.UnderWriter)
                 .SingleOrDefault(c => c.Id == id);
             if (customer == null)
                 return HttpNotFound();
@@ -93,7 +99,7 @@ namespace Jeudfra_Beta.Controllers
             var viewModel = new CustomerFormViewModel
             {
                 Customer = customer,
-               // Policies = _context.Policies.ToList()
+                UnderWriters = _context.UnderWriters.ToList()
             };
             return View(viewModel);
         }

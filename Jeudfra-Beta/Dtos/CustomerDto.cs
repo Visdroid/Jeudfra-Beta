@@ -45,6 +45,8 @@ namespace Jeudfra_Beta.Dtos
         //[Display(Name = "MemberShip Type")]
         public AddressDto Address { get; set; }
         public SpouseDto Spouse { get; set; }
+        public UnderWriterDto UnderWriter { get; set; }
+
 
 
         //public Policy Policy { get; set; }
@@ -52,6 +54,8 @@ namespace Jeudfra_Beta.Dtos
         public int PolicyId { get; set; }
         public int AddressId { get; set; }
         public int SpouseId { get; set; }
+        public int UnderWriterId { get; set; }
+
 
         public DateTime? JoinDate { get; set; }
 

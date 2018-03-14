@@ -110,11 +110,16 @@
             <div class="form-group">
                 @Html.LabelFor(m => m.Customer.Spouse.Gender)
                 @Html.DropDownListFor(m => m.Customer.Spouse.Gender, new List<SelectListItem>
-                                                                                                                                                                                                            {
-                                                                                                                                                                                                                new SelectListItem {Text = "Male", Value = "Male"},
-                                                                                                                                                                                                                new SelectListItem {Text = "Female", Value = "Female"}
-                                                                                                                                                                                                            }, "Select Gender", new { @class = "form-control form-control col-12 mb-3 " })
+                                                                                                                                                                                                    {
+                                                                                                                                                                                                        new SelectListItem {Text = "Male", Value = "Male"},
+                                                                                                                                                                                                        new SelectListItem {Text = "Female", Value = "Female"}
+                                                                                                                                                                                                    }, "Select Gender", new { @class = "form-control form-control col-12 mb-3 " })
                 @Html.ValidationMessageFor(m => m.Customer.Spouse.Gender)
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Customer.UnderWriterId)
+                @Html.DropDownListFor(m => m.Customer.UnderWriterId, new SelectList(Model.UnderWriters, "Id", "Name"), "Select UnderWriter", new { @class = "form-control form-control col-12 mb-3 " })
+                @Html.ValidationMessageFor(m => m.Customer.UnderWriterId)
             </div>
         </div>
     </fieldset>

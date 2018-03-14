@@ -12,5 +12,7 @@ namespace Jeudfra_Beta.Models
         [StringLength(255)]
         [Required]
         public string Name { get; set; }
+        public Address Address { get; set; }
+        public byte AddressId { get; set; }
     }
 }

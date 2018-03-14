@@ -29,14 +29,16 @@ namespace Jeudfra_Beta.Controllers
         {
             var policies = _context.Policies.ToList();
             var customers = _context.Customers.ToList();
-           // var customers = _context.Customers.Count();
-           
+            var underWriterS = _context.UnderWriters.ToList();
+            // var customers = _context.Customers.Count();
+
             var viewModel = new CustomerFormViewModel
             {
                 Customer = new Client(),
                 customersCount = _context.Customers.Count(),
                 Policies = policies,
                 Customers = customers,
+                UnderWriters = underWriterS,
                 //Address =
                 policyCount = _context.Policies.Count(),
                 paymentCount = _context.Payments.Count()
