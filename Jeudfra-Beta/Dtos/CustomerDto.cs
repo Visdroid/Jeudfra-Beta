@@ -43,12 +43,15 @@ namespace Jeudfra_Beta.Dtos
         // public MembershipType MembershipType { get; set; }
 
         //[Display(Name = "MemberShip Type")]
-         public AddressDto Address { get; set; }
+        public AddressDto Address { get; set; }
+        public SpouseDto Spouse { get; set; }
+
 
         //public Policy Policy { get; set; }
         // [Display(Name = "Policy Type")]
         public int PolicyId { get; set; }
         public int AddressId { get; set; }
+        public int SpouseId { get; set; }
 
         public DateTime? JoinDate { get; set; }
 

@@ -21,5 +21,11 @@ namespace Jeudfra_Beta.Models
         [Required]
         [Display(Name = "ID Number")]
         public string NationalIdNumber { get; set; }
+
+        [Display(Name = "Date Of Birth")]
+        public DateTime? BirthDate { get; set; }
+
+        [Required]
+        public string Gender { get; set; }
     }
 }

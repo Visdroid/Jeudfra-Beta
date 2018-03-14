@@ -24,9 +24,7 @@ namespace Jeudfra_Beta.Controllers.Api
         public IHttpActionResult GetCustomers()
         {
 
-            var customerDtos = _context.Customers
-                .Include(c => c.Address).ToList()
-                .Select(Mapper.Map<Client, CustomerDto>);
+            var customerDtos = _context.Customers.Include(c => c.Address).Include(c => c.Spouse).ToList().Select(Mapper.Map<Client, CustomerDto>);
 
             return Ok(customerDtos);
         }

@@ -53,18 +53,25 @@ namespace Jeudfra_Beta.Controllers
                 _context.Customers.Add(customer);
             else
             {
-                var customerInDb = _context.Customers.Include(c => c.Address).Single(c => c.Id == customer.Id);
+                var customerInDb = _context.Customers.Include(c => c.Address).Include(c => c.Spouse).Single(c => c.Id == customer.Id);
                 customerInDb.Name = customer.Name;
                 customerInDb.Surname = customer.Surname;
                 customerInDb.NationalIdNumber = customer.NationalIdNumber;
                 customerInDb.BirthDate = customer.BirthDate;
                 customerInDb.Gender = customer.Gender;
                 // customerInDb.PolicyId = customer.PolicyId;
+
                 customerInDb.Address.City = customer.Address.City;
                 customerInDb.Address.Suburb = customer.Address.Suburb;
                 customerInDb.Address.Street = customer.Address.Street;
                 customerInDb.Address.HouseNumber = customer.Address.HouseNumber;
                 customerInDb.Address.AreaCode = customer.Address.AreaCode;
+
+                customerInDb.Spouse.Name = customer.Spouse.Name;
+                customerInDb.Spouse.Surname = customer.Spouse.Surname;
+                customerInDb.Spouse.NationalIdNumber = customer.Spouse.NationalIdNumber;
+                customerInDb.Spouse.BirthDate = customer.Spouse.BirthDate;
+                customerInDb.Spouse.Gender = customer.Spouse.Gender;
 
             }
 
@@ -76,7 +83,10 @@ namespace Jeudfra_Beta.Controllers
 
         public ActionResult Details(int id)
         {
-            var customer = _context.Customers.Include(c => c.Address).SingleOrDefault(c => c.Id == id);
+            var customer = _context.Customers
+                .Include(c => c.Address)
+                .Include(c => c.Spouse)
+                .SingleOrDefault(c => c.Id == id);
             if (customer == null)
                 return HttpNotFound();
 

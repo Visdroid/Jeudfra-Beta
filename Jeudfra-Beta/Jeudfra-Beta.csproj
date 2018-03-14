@@ -227,6 +227,7 @@
     <Compile Include="Dtos\CustomerDto.cs" />
     <Compile Include="Dtos\NewPaymentDto.cs" />
     <Compile Include="Dtos\PolicyDto.cs" />
+    <Compile Include="Dtos\SpouseDto.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -321,6 +322,10 @@
     <Compile Include="Migrations\201803122207597_UnderWriterForeignKeyToClient.cs" />
     <Compile Include="Migrations\201803122207597_UnderWriterForeignKeyToClient.Designer.cs">
       <DependentUpon>201803122207597_UnderWriterForeignKeyToClient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803131829110_DOBAndGenderToSpouse.cs" />
+    <Compile Include="Migrations\201803131829110_DOBAndGenderToSpouse.Designer.cs">
+      <DependentUpon>201803131829110_DOBAndGenderToSpouse.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -791,6 +796,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201803122207597_UnderWriterForeignKeyToClient.resx">
       <DependentUpon>201803122207597_UnderWriterForeignKeyToClient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803131829110_DOBAndGenderToSpouse.resx">
+      <DependentUpon>201803131829110_DOBAndGenderToSpouse.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
