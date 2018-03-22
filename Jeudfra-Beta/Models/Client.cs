@@ -52,5 +52,9 @@ namespace Jeudfra_Beta.Models
         [Display(Name = "UnderWriter")]
         public byte UnderWriterId { get; set; }
 
+        public Child Child { get; set; }
+        [Display(Name = "UnderWriter")]
+        public byte ChildId { get; set; }
+
     }
 }

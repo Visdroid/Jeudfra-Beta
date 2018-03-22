@@ -32,11 +32,10 @@
                                 <th>Name</th>
                                 <th>Surname</th>
                                 <th>Gender</th>
-                                @*<th>Birthdate</th>*@
                                 <th>Id Number</th>
                                 <th>City</th>
-                                <th>UnderWriter</th>
-                                @*<th></th>*@
+                                <th>Child</th>
+                                @*<th>UnderWriter</th>*@
                                 <th>Details</th>
                                 <th>Delete</th>
                             </tr>
@@ -69,9 +68,7 @@
                     {
                         data: "gender"
                     },
-                    //{
-                    //    data: "birthDate"
-                    //},
+                  
                     {
                         data: "nationalIdNumber"
                     },
@@ -79,10 +76,13 @@
                         data: "address.city"
                     },
                     {
-                        data: "underWriter.name"
+                        data: "child.name"
                         
                     },
-                   
+                    //{
+                    //    data: "underWriterId"
+
+                    //},
                     {
                         data: "id",
                         render: function (data, type, customer) {

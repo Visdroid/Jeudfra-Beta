@@ -224,6 +224,7 @@
     <Compile Include="Controllers\PaymentsController.cs" />
     <Compile Include="Controllers\PolicyController.cs" />
     <Compile Include="Dtos\AddressDto.cs" />
+    <Compile Include="Dtos\ChildDto.cs" />
     <Compile Include="Dtos\CustomerDto.cs" />
     <Compile Include="Dtos\NewPaymentDto.cs" />
     <Compile Include="Dtos\PolicyDto.cs" />
@@ -332,9 +333,22 @@
     <Compile Include="Migrations\201803141353473_AddressToUnderWriter.Designer.cs">
       <DependentUpon>201803141353473_AddressToUnderWriter.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201803201233076_test.cs" />
+    <Compile Include="Migrations\201803201233076_test.Designer.cs">
+      <DependentUpon>201803201233076_test.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803220946375_ReCreateChild.cs" />
+    <Compile Include="Migrations\201803220946375_ReCreateChild.Designer.cs">
+      <DependentUpon>201803220946375_ReCreateChild.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803220950026_AddChildForKeyToClient.cs" />
+    <Compile Include="Migrations\201803220950026_AddChildForKeyToClient.Designer.cs">
+      <DependentUpon>201803220950026_AddChildForKeyToClient.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Address.cs" />
+    <Compile Include="Models\Child.cs" />
     <Compile Include="Models\Client.cs" />
     <Compile Include="Models\ContactDetail.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -807,6 +821,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201803141353473_AddressToUnderWriter.resx">
       <DependentUpon>201803141353473_AddressToUnderWriter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803201233076_test.resx">
+      <DependentUpon>201803201233076_test.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803220946375_ReCreateChild.resx">
+      <DependentUpon>201803220946375_ReCreateChild.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803220950026_AddChildForKeyToClient.resx">
+      <DependentUpon>201803220950026_AddChildForKeyToClient.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
