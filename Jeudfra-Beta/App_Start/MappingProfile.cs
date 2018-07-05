@@ -26,8 +26,6 @@ namespace Jeudfra_Beta.App_Start
 
             Mapper.CreateMap<UnderWriter, UnderWriterDto>();
 
-            Mapper.CreateMap<Child, ChildDto>();
-
             // Dto to Domain
             Mapper.CreateMap<CustomerDto, Client>()
                             .ForMember(c => c.Id, opt => opt.Ignore());

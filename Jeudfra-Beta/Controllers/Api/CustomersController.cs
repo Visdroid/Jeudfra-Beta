@@ -28,7 +28,6 @@ namespace Jeudfra_Beta.Controllers.Api
                 .Include(c => c.Address)
                 .Include(c => c.Spouse)
                 .Include(c => c.UnderWriter)
-                .Include(c => c.Child)
                 .ToList().Select(Mapper.Map<Client, CustomerDto>);
 
             return Ok(customerDtos);

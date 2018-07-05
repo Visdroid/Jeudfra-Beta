@@ -53,7 +53,7 @@ namespace Jeudfra_Beta.Controllers
                 _context.Customers.Add(customer);
             else
             {
-                var customerInDb = _context.Customers.Include(c => c.Address).Include(c => c.Spouse).Include(c => c.UnderWriter).Include(c => c.Child).Single(c => c.Id == customer.Id);
+                var customerInDb = _context.Customers.Include(c => c.Address).Include(c => c.Spouse).Include(c => c.UnderWriter).Single(c => c.Id == customer.Id);
                 customerInDb.Name = customer.Name;
                 customerInDb.Surname = customer.Surname;
                 customerInDb.NationalIdNumber = customer.NationalIdNumber;
@@ -73,13 +73,7 @@ namespace Jeudfra_Beta.Controllers
                 customerInDb.Spouse.BirthDate = customer.Spouse.BirthDate;
                 customerInDb.Spouse.Gender = customer.Spouse.Gender;
 
-                customerInDb.Child.Name = customer.Child.Name;
-                customerInDb.Child.Surname = customer.Child.Surname;
-                customerInDb.Child.NationalIdNumber = customer.Child.NationalIdNumber;
-                customerInDb.Child.BirthDate = customer.Child.BirthDate;
-                customerInDb.Child.Gender = customer.Child.Gender;
-
-                customerInDb.UnderWriterId = customer.UnderWriterId;
+                customerInDb.UnderWriter.Name = customer.UnderWriter.Name;
                 //customerInDb.Spouse.Surname = customer.Spouse.Surname;
                 //customerInDb.Spouse.NationalIdNumber = customer.Spouse.NationalIdNumber;
 
@@ -96,8 +90,8 @@ namespace Jeudfra_Beta.Controllers
             var customer = _context.Customers
                 .Include(c => c.Address)
                 .Include(c => c.Spouse)
-                .Include(c => c.Child)
-                .Include(c => c.UnderWriter)
+                .Include(c => c.Spouse)
+                .Include(C => C.UnderWriter)
                 .SingleOrDefault(c => c.Id == id);
             if (customer == null)
                 return HttpNotFound();

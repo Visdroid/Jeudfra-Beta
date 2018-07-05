@@ -31,25 +31,25 @@
         @Html.TextBoxFor(m => m.Customer.NationalIdNumber, new { @class = "form-control form-control col-12 mb-3 " })
         <div class="form-group">
             @if (Model.Customer.BirthDate.HasValue)
-            {
-                @Html.LabelFor(m => m.Customer.BirthDate)
-                @Html.TextBoxFor(m => m.Customer.BirthDate, "{0:d MMM yyyy}", new { @class = "form-control form-control col-12 mb-3 " })
-            }
+        {
+            @Html.LabelFor(m => m.Customer.BirthDate)
+            @Html.TextBoxFor(m => m.Customer.BirthDate, "{0:d MMM yyyy}", new { @class = "form-control form-control col-12 mb-3 " })
+    }
         </div>
         <div class="form-group">
             @Html.LabelFor(m => m.Customer.Gender)
             @Html.DropDownListFor(m => m.Customer.Gender, new List<SelectListItem>
-                                                                                                                                                                            {
-                                                                                                                                                                                new SelectListItem {Text = "Male", Value = "Male"},
-                                                                                                                                                                                new SelectListItem {Text = "Female", Value = "Female"}
-                                                                                                                                                                            }, "Select Gender", new { @class = "form-control form-control col-12 mb-3 " })
+                                                                                                                                                                                                    {
+                                                                                                                                                                                                        new SelectListItem {Text = "Male", Value = "Male"},
+                                                                                                                                                                                                        new SelectListItem {Text = "Female", Value = "Female"}
+                                                                                                                                                                                                    }, "Select Gender", new { @class = "form-control form-control col-12 mb-3 " })
             @Html.ValidationMessageFor(m => m.Customer.Gender)
         </div>
         @*<div class="form-group">
-                @Html.LabelFor(m => m.Customer.PolicyId)
-                @Html.DropDownListFor(m => m.Customer.PolicyId, new SelectList(Model.Policies, "Id", "Name"), "Select Policy Type", new { @class = "form-control form-control col-12 mb-3 " })
+            @Html.LabelFor(m => m.Customer.PolicyId)
+            @Html.DropDownListFor(m => m.Customer.PolicyId, new SelectList(Model.Policies, "Id", "Name"), "Select Policy Type", new { @class = "form-control form-control col-12 mb-3 " })
 
-            </div>*@
+        </div>*@
 
     </fieldset>
     <br />
@@ -59,9 +59,9 @@
         <div class="form-group">
             @Html.LabelFor(m => m.Customer.Address.City)
             @Html.DropDownListFor(m => m.Customer.Address.City, new List<SelectListItem>
-                                                                                                                                                                                                                                        {
-                                                                                                                                                                                                                                            new SelectListItem {Text = "Upington", Value = "Upington"},                                                                                                                                                                                                                                                                           new SelectListItem {Text = "Kakamas", Value = "Kakamas"},
-                                                                                                                                                                                                                                             new SelectListItem {Text = "Louisvale", Value = "Louisvale"}                                                                                                                                                                                                                                                                        }, "Select City", new { @class = "form-control form-control col-12 mb-3 " })
+                                                                                                                                                                                                                                                                {
+                                                                                                                                                                                                                                                                    new SelectListItem {Text = "Upington", Value = "Upington"},                                                                                                                                                                                                                                                                           new SelectListItem {Text = "Kakamas", Value = "Kakamas"},
+                                                                                                                                                                                                                                                                     new SelectListItem {Text = "Louisvale", Value = "Louisvale"}                                                                                                                                                                                                                                                                        }, "Select City", new { @class = "form-control form-control col-12 mb-3 " })
             @Html.ValidationMessageFor(m => m.Customer.Address.City)
             <div class="form-group">
                 @Html.LabelFor(m => m.Customer.Address.Suburb)
@@ -116,63 +116,22 @@
                                                                                                                                                                                                     }, "Select Gender", new { @class = "form-control form-control col-12 mb-3 " })
                 @Html.ValidationMessageFor(m => m.Customer.Spouse.Gender)
             </div>
-
+            <div class="form-group">
+                @Html.LabelFor(m => m.Customer.UnderWriterId)
+                @Html.DropDownListFor(m => m.Customer.UnderWriterId, new SelectList(Model.UnderWriters, "Id", "Name"), "Select UnderWriter", new { @class = "form-control form-control col-12 mb-3 " })
+                @Html.ValidationMessageFor(m => m.Customer.UnderWriterId)
+            </div>
         </div>
     </fieldset>
-    <br />
     <fieldset class="border col-md-12">
-        <legend>Customer UnderWriter</legend>
+        <legend>Contact Details</legend>
         <div class="form-group">
-            @Html.LabelFor(m => m.Customer.UnderWriterId)
-            @Html.DropDownListFor(m => m.Customer.UnderWriterId, new SelectList(Model.UnderWriters, "Id", "Name"), "Select UnderWriter", new { @class = "form-control form-control col-12 mb-3 " })
-            @Html.ValidationMessageFor(m => m.Customer.UnderWriterId)
+            <input id="client_cell_input" placeholder="Cellphone" type="text" class="form-control form-control-md col-12 mb-3 ">
+            <input id="client_home_tell_input" placeholder="Home Telephone" type="text" class="form-control  form-control-md col-12 mb-3 ">
+            <input id="client_work_tell_input" placeholder="Work Telephone" type="text" class="form-control  form-control-md col-12 mb-3 ">
+            <input id="client_email_input" placeholder="Email Address" type="text" class="form-control  form-control-md col-12 mb-3 ">
         </div>
     </fieldset>
-        <br />
-        <fieldset class="border col-md-12">
-            <legend>Spouse Details</legend>
-            <div class="form-group">
-                <div class="form-group">
-                    @Html.LabelFor(m => m.Customer.Child.Name)
-                    @Html.TextBoxFor(m => m.Customer.Child.Name, new { @class = "form-control form-control col-12 mb-3 " })
-                    @Html.ValidationMessageFor(m => m.Customer.Child.Name)
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(m => m.Customer.Child.Surname)
-                    @Html.TextBoxFor(m => m.Customer.Child.Surname, new { @class = "form-control form-control col-12 mb-3 " })
-                    @Html.ValidationMessageFor(m => m.Customer.Child.Surname)
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(m => m.Customer.Child.NationalIdNumber)
-                    @Html.TextBoxFor(m => m.Customer.Child.NationalIdNumber, new { @class = "form-control form-control col-12 mb-3 " })
-                    @Html.ValidationMessageFor(m => m.Customer.Child.NationalIdNumber)
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(m => m.Customer.Child.BirthDate)
-                    @Html.TextBoxFor(m => m.Customer.Child.BirthDate, "{0:d MMM yyyy}", new { @class = "form-control form-control col-12 mb-3 " })
-                    @Html.ValidationMessageFor(m => m.Customer.Child.BirthDate)
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(m => m.Customer.Child.Gender)
-                    @Html.DropDownListFor(m => m.Customer.Child.Gender, new List<SelectListItem>
-                                                                                                                                                                                                        {
-                                                                                                                                                                                                            new SelectListItem {Text = "Male", Value = "Male"},
-                                                                                                                                                                                                            new SelectListItem {Text = "Female", Value = "Female"}
-                                                                                                                                                                                                        }, "Select Gender", new { @class = "form-control form-control col-12 mb-3 " })
-                    @Html.ValidationMessageFor(m => m.Customer.Child.Gender)
-                </div>
-            </div>
-        </fieldset>
-        <br />
-        <fieldset class="border col-md-12">
-            <legend>Contact Details</legend>
-            <div class="form-group">
-                <input id="client_cell_input" placeholder="Cellphone" type="text" class="form-control form-control-md col-12 mb-3 ">
-                <input id="client_home_tell_input" placeholder="Home Telephone" type="text" class="form-control  form-control-md col-12 mb-3 ">
-                <input id="client_work_tell_input" placeholder="Work Telephone" type="text" class="form-control  form-control-md col-12 mb-3 ">
-                <input id="client_email_input" placeholder="Email Address" type="text" class="form-control  form-control-md col-12 mb-3 ">
-            </div>
-        </fieldset>
 
 </div>
     @Html.HiddenFor(m => m.Customer.Id)

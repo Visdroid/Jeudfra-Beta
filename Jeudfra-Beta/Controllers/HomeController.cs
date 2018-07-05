@@ -27,18 +27,18 @@ namespace Jeudfra_Beta.Controllers
          
         public ActionResult Index()
         {
-           // var policies = _context.Policies.ToList();
+            var policies = _context.Policies.ToList();
             var customers = _context.Customers.ToList();
-            var underWriters = _context.UnderWriters.ToList();
+            var underWriterS = _context.UnderWriters.ToList();
             // var customers = _context.Customers.Count();
 
             var viewModel = new CustomerFormViewModel
             {
                 Customer = new Client(),
                 customersCount = _context.Customers.Count(),
-              //  Policies = policies,
+                Policies = policies,
                 Customers = customers,
-                UnderWriters = underWriters,
+                UnderWriters = underWriterS,
                 //Address =
                 policyCount = _context.Policies.Count(),
                 paymentCount = _context.Payments.Count()

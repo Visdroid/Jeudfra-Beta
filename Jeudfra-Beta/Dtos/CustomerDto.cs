@@ -46,7 +46,6 @@ namespace Jeudfra_Beta.Dtos
         public AddressDto Address { get; set; }
         public SpouseDto Spouse { get; set; }
         public UnderWriterDto UnderWriter { get; set; }
-        public ChildDto Child { get; set; }
 
 
 
@@ -56,7 +55,6 @@ namespace Jeudfra_Beta.Dtos
         public int AddressId { get; set; }
         public int SpouseId { get; set; }
         public int UnderWriterId { get; set; }
-        public int ChildId { get; set; }
 
 
         public DateTime? JoinDate { get; set; }
